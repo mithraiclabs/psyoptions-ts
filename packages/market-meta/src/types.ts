@@ -12,8 +12,21 @@ export type Token = {
   iconUrl: String;
 }
 
+export type OptionMarketMeta = {
+  expiration: number
+  optionMarketAddress: string
+  optionContractMintAddress: string
+  optionWriterTokenMintAddress: string
+  quoteAssetMint: string
+  underlyingAssetMint: string
+  underlyingAssetPerContract: string
+  quoteAssetPerContract: string
+  serumMarketAddress: string
+}
+
 export type ClusterEnv = {
   tokens: Token[];
+  optionMarkets: OptionMarketMeta[];
 }
 
 enum Clusters {
