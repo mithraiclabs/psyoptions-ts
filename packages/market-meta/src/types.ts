@@ -5,11 +5,11 @@
  * Decimals can be retrieved with an on-chain call to the SPL Token program.
  */
 export type Token = {
-  symbol: String;
-  name: String;
+  tokenSymbol: String;
+  tokenName: String;
   mintAddress: String;
   faucetAddress?: String;
-  iconUrl: String;
+  icon: String;
 }
 
 export type OptionMarketMeta = {
