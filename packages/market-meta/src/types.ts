@@ -19,7 +19,9 @@ export type OptionMarketMeta = {
   optionContractMintAddress: string
   optionWriterTokenMintAddress: string
   quoteAssetMint: string
+  quoteAssetPoolAddress: string
   underlyingAssetMint: string
+  underlyingAssetPoolAddress: string
   underlyingAssetPerContract: string
   quoteAssetPerContract: string
   serumMarketAddress: string
