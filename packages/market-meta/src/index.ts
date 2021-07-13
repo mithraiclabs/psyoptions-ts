@@ -2,7 +2,7 @@ import { DevnetTokens, MainnetTokens } from "./tokens";
 import { ClusterEnvs } from './types'
 import { DevnetMarkets, MainnetMarkets, TestnetMarkets } from "./markets";
 
- const _default: ClusterEnvs = {
+ export const MarketMeta: ClusterEnvs = {
   devnet: {
     tokens: DevnetTokens,
     optionMarkets: DevnetMarkets,
@@ -16,5 +16,3 @@ import { DevnetMarkets, MainnetMarkets, TestnetMarkets } from "./markets";
     optionMarkets: TestnetMarkets,
   }
 }
-
-export default _default;

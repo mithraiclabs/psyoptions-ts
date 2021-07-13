@@ -1,4 +1,4 @@
-import { OptionMarketMeta } from "src/types";
+import { OptionMarketMeta } from "../types";
 
 export const DevnetMarkets: OptionMarketMeta[] = [
   {
