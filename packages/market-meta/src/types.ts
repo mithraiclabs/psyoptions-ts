@@ -25,6 +25,8 @@ export type OptionMarketMeta = {
   underlyingAssetPerContract: string
   quoteAssetPerContract: string
   serumMarketAddress: string
+  serumProgramId: string
+  psyOptionsProgramId: string
 }
 
 export type ClusterEnv = {

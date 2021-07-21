@@ -14,6 +14,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "3500000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "2fc2ZLeDDs3RoijbdAMURwCe73J2R6MRLb47VbcbWFqz",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1622246399,
@@ -28,6 +30,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "3000000",
     serumMarketAddress: "9ij6fESTUQ9QdJHGd3JPu4gdnPkhtHYRzo1VNZmQ5XKQ",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -42,6 +46,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "4000000",
     serumMarketAddress: "GehhKnnZriLfsscJjrUrLuJTnpfspwDwn44owCn8C5fe",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1632527999,
@@ -56,6 +62,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "120000",
     quoteAssetPerContract: "100000000",
     serumMarketAddress: "4hZ9WKT7yRV5jw4V3PmH7R1fRhyvpMa72PmdfUkVPX2K",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -70,6 +78,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "100000000",
     quoteAssetPerContract: "750000",
     serumMarketAddress: "3r3F1bmNAdxSbfPXSSY92CoKESsiSsKWvXmp437PUYLH",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -84,6 +94,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "3500000",
     serumMarketAddress: "9knLUuGLXFjbvVDETU5cydW2J95ApTJATqacnXZjkbHu",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -98,6 +110,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "2000000",
     serumMarketAddress: "ApPbGRgUxW72ELnXJpvQGjXVkcsoTf9Kxw1FrYawAdT9",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -112,6 +126,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "5500000",
     serumMarketAddress: "EQMbrwnweShPC2nGVLGF3gLaEpSsNya6TyfTRBsQS9hg",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -126,6 +142,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "4500000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "E1V2YJq7gxsZb7zMn2SZMu81816AhosXhw39j9dL5k5g",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -140,6 +158,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "5000000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "HRripg5UMT2LArryxA1qRAW1sn8UqDTjZtFYgqc3WnAj",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -154,6 +174,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "5000000",
     serumMarketAddress: "8vbPmoSCnfVazE9mH68KifV68ahNYbfYPEYawCJ5TLc6",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -168,6 +190,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "3000000",
     serumMarketAddress: "BPUW1K9PdMMepxWfH58rMKSLLYYfC629aerB5FTd4foo",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -182,6 +206,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "5000000",
     serumMarketAddress: "FCowbEy5xdLex4UPn9GvhXFFMJDWHo2Em9UN8PbD8GT2",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -196,6 +222,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "3500000",
     serumMarketAddress: "JB2z1v5gxsGUdnDhRoYRZv6V6BnaTvyBhCxyXPEiRz5S",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -210,6 +238,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "6500000",
     serumMarketAddress: "7eGprD1XAGUMRZXc7TsXfjehyHvZMUJU4HeYEDSFKjWY",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -224,6 +254,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "4500000",
     serumMarketAddress: "BSAtAQa2sqqmNKZXj9Ljd95dgu81JT7YMQHasmvndE9R",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1632527999,
@@ -237,6 +269,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "100000000",
     quoteAssetPerContract: "140000",
     serumMarketAddress: "AZ1i8ssNcS8HivRR6bZXn9o12MoD8cJig8tx3wQQT1nq",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1640995199,
@@ -251,6 +285,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "6000000",
     serumMarketAddress: "A1puENk4nxMwCPhtT9HT28nDU8CTE5uSFLL7RhdrPD4s",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -265,6 +301,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "3000000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "SrNRHNxXfouD8UG9ULbaaqHVPa4t5zekiJPJoQqs2oV",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -279,6 +317,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "7000000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "HM7rbUzmD24RLXWFt2X1x6nY1oVFGQyM6Fc5jmxTjzUK",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -293,6 +333,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "5000000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "6QP1F73TSLJdbQZ3rgVZ176wnbSV5GS62oUp5EZuPC3p",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -307,6 +349,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "3500000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "7C7k26w2txWVEfdimWzjTrxqnFANvvsRsEbCFxRZNGzL",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -321,6 +365,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "4000000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "CPLPcpNRkFKGUD3uqm6PavinHKhBUrCgjRqWhaPZHmq6",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1630108799,
@@ -335,6 +381,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "4000000",
     serumMarketAddress: "3sGG26Hp15DGvJmKSwQZwoJAkcvoLB6oiugnhaPQ4wx7",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -348,6 +396,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "7000000",
     serumMarketAddress: "ANYhJDQyBH8gKqySG6cbeybJrE7yk6ocTuufhRu9FWo",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1640995199,
@@ -362,6 +412,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "7000000",
     serumMarketAddress: "2wriXhTCsUwBvfyYch8X6J8pLW797Vm8Thsz4xRZh1Yb",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1630108799,
@@ -376,6 +428,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "2500000",
     serumMarketAddress: "BQNzznzHzxfsBvW3VmRTsVSSXfCkUsJs7DqWE42dC5Pw",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1640995199,
@@ -390,6 +444,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "3500000",
     serumMarketAddress: "B6VGQiFN7auykkDgyJfNibkqRwth7dWzxS6w6TjUxmmD",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1622246399,
@@ -404,6 +460,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "2000000",
     serumMarketAddress: "DRyseDNeM5P8VuM8nRyiMdgmauvqzcEHx9kmp9HFLAsF",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -418,6 +476,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "9000000",
     serumMarketAddress: "Es6oC8z47fiMU4A3rQn7CNKDLeaJAvmALNQHyPtGhzim",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1630108799,
@@ -432,6 +492,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "3500000",
     serumMarketAddress: "8c9i269CnL6JzdZJynQEkSBhf98PstRWSQMWvuoxxwus",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1640995199,
@@ -446,6 +508,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "5000000",
     serumMarketAddress: "49vNyNhxq9wp96hYtKHtGM6dvbVPzH31WMzMmNwfdEEr",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -460,6 +524,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "6000000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "xibPEBHnXa7mE8mFcNiY4hhNBW62ZZPuDuee7a6NNEq",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -474,6 +540,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "6000000",
     serumMarketAddress: "BB2qLRS638eNkgWLokN2MJtqYmo284qD1Cq4jAKz5X4r",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1622246399,
@@ -488,6 +556,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "2500000",
     serumMarketAddress: "BU9LoR1PrJfUkxtxdCVeWB7qWwGa7V7Rv5g2UssrfeTG",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -502,6 +572,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "9000000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "4aCLa5Gj5Cik1hdxPqUABpLf8462zHUdgyX9w4TMHXvA",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1630108799,
@@ -516,6 +588,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "2500000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "Ea4MybkM5Cvq5ze3rSYSeDCzJFM6uAT4DksaVs1wqga",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1630108799,
@@ -530,6 +604,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "3000000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "5azneHVGmcBWMFD7LPcZjgYjA28RocVbC9XN5DExcVo6",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1630108799,
@@ -544,6 +620,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "4000000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "4r29ykEaq95MDyMBftftCPTYVynBEziysbcYezMcTQbf",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -558,6 +636,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "2500000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "2EvAnkrYgnswgijPLm7ZHHjaeqkPCCkZQ4ZdmGjmceYC",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -572,6 +652,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "5500000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "Hk5rUvtdJDEssMvrpqs8KtXMexd1yEz3RjeaigJcERRx",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1630108799,
@@ -586,6 +668,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "5000000",
     serumMarketAddress: "FNLoajEuPiuwSNXHq15cwgveYgsGCJ9UH6DNvqBZRXfh",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -600,6 +684,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "3000000",
     serumMarketAddress: "y4JK9YBFcUk3RGqWXWm2ahnLq7jnSpukYiXAc651Uoj",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -614,6 +700,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "3500000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "8Q5YprfdXtrwfW38ADUZRyx18AcmhvuMZ2AJfCfHvm8h",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -628,6 +716,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "4500000",
     serumMarketAddress: "J1dkVbxAaDLiqcnm6L7SdXJBmbrE7bj3b9nWwybHCCS6",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1630108799,
@@ -642,6 +732,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "4500000",
     serumMarketAddress: "8NHTb6bSasynNwvfz7UUx8sq3rsSiuExH8xCcKPsJ3kU",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1622246399,
@@ -656,6 +748,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "4000000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "4tzMmybJoFvtFwrJMRG76LPxVgyNSPSa1gAiXQYpVY6W",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1630108799,
@@ -670,6 +764,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "3000000",
     serumMarketAddress: "4qQKj8SzLJ96ro5HVASkn56bdrPkWn1W1hWXaKgy7QmQ",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -684,6 +780,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "750000",
     quoteAssetPerContract: "100000000",
     serumMarketAddress: "DD1iPXHnqFGNPYapg3NGh2mrrDgpnKvmGLsew1iKZZF1",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -698,6 +796,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "8000000",
     serumMarketAddress: "EN3JXLGXj2mgeTanjRyvomM3Hx8uGUfYNPfs5XpAUbr",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -711,6 +811,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "2000000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "2RfSFgh3eY4FSKRHJVF4eKNSZzRb2wswrsbvNAfhzwzX",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -724,6 +826,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "2500000",
     serumMarketAddress: "3pody6QH6KJWqmgAHW9XWEh9QcrmvghsRNUqpydFVhR7",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1624665599,
@@ -738,6 +842,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "8000000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "AUznt5hiNAKuhQvE2oV9R1x4rsYoJ8hbxKXDb4rseaHN",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -752,6 +858,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "4000000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "HmLnCdLST3yMi8Nd3Y5u2prLzJKTYHVNbqFmttjEMJ1u",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -766,6 +874,8 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "1000000000",
     quoteAssetPerContract: "4000000",
     serumMarketAddress: "BmSmzgNhyKpKi11x98PTCjznyingMGXKTbQQCu6CFjXt",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
   {
     expiration: 1627689599,
@@ -780,5 +890,7 @@ export const DevnetMarkets: OptionMarketMeta[] = [
     underlyingAssetPerContract: "4500000",
     quoteAssetPerContract: "1000000000",
     serumMarketAddress: "8ex9QUPmCV9srS3C4k3VtPHBRBs34WEK371AG5q2Xz5j",
+    serumProgramId: "DESVgJVGajEgKGXhb6XmqDHGz3VjdgP7rEVESBgxmroY",
+    psyOptionsProgramId: "GDvqQy3FkDB2wyNwgZGp5YkmRMUmWbhNNWDMYKbLSZ5N",
   },
 ];
