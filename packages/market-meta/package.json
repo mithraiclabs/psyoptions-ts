@@ -1,12 +1,13 @@
 {
   "name": "@mithraic-labs/market-meta",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Contains asset and market data relevant to PsyOptions clients",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "scripts": {
     "build": "tsc",
-    "build:package": "rollup -c",
+    "build:package": "yarn clean && rollup -c",
+    "clean": "rimraf ./dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit"
   },
@@ -25,6 +26,7 @@
   "homepage": "https://github.com/mithraiclabs/psyoptions-ts#readme",
   "dependencies": {},
   "devDependencies": {
+    "rimraf": "^3.0.2",
     "rollup": "^2.53.1",
     "rollup-plugin-typescript2": "^0.30.0",
     "typescript": "^4.3.5"
