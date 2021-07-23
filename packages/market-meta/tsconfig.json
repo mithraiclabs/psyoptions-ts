@@ -16,6 +16,7 @@
               "node_modules/*"
           ]
       },
+      "resolveJsonModule": true,
       "typeRoots": ["node_modules/@types"]
   },
   "include": [
