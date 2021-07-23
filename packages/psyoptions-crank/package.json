@@ -1,0 +1,23 @@
+{
+  "name": "psyoptions-crank",
+  "version": "1.0.0",
+  "description": "A package to crank psyoptions markets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mithraic-labs/market-meta": "^0.0.3",
+    "@mithraic-labs/serum": "^0.0.5",
+    "@solana/spl-token": "^0.1.6",
+    "@solana/web3.js": "^1.22.0",
+    "yargs": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.4.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.5"
+  }
+}
