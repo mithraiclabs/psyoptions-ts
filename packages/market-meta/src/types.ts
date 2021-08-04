@@ -11,6 +11,7 @@ export type Token = {
   faucetAddress?: string;
   icon: string;
   decimals: number;
+  defaultContractSize?: number;
 };
 
 export type OptionMarketMeta = {
