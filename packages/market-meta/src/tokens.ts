@@ -10,6 +10,7 @@ export const DevnetTokens: Token[] = [
     icon: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/bitcoin/info/logo.png',
     faucetAddress: '97z3NzcDxqRMyE7F73PuHEmAbA72S7eDopjhe7GTymTk',
     decimals: 9,
+    defaultContractSize: 0.1,
   },
   {
     tokenSymbol: 'USDC',
@@ -26,6 +27,7 @@ export const DevnetTokens: Token[] = [
     icon: 'https://docs.psyoptions.io/img/PsyOps.svg',
     faucetAddress: '7jJJnHWagPPG544FtxSVp8eD52FwCsARcqqup1q3XVio',
     decimals: 9,
+    defaultContractSize: 100,
   },
   {
     tokenSymbol: 'SOL',
@@ -33,6 +35,7 @@ export const DevnetTokens: Token[] = [
     tokenName: 'Solana',
     icon: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/solana/info/logo.png',
     decimals: 9,
+    defaultContractSize: 10,
   },
 ]
 
