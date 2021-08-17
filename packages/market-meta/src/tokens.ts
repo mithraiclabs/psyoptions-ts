@@ -10,7 +10,7 @@ export const DevnetTokens: Token[] = [
     icon: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/bitcoin/info/logo.png',
     faucetAddress: '97z3NzcDxqRMyE7F73PuHEmAbA72S7eDopjhe7GTymTk',
     decimals: 9,
-    defaultContractSize: 0.1,
+    defaultContractSize: 0.01,
   },
   {
     tokenSymbol: 'USDC',
@@ -46,6 +46,7 @@ export const MainnetTokens: Token[] = [
     mintAddress: "So11111111111111111111111111111111111111112",
     icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/solana/info/logo.png",
     decimals: 9,
+    defaultContractSize: 10,
   },
   {
     tokenSymbol: "BTC",
@@ -53,6 +54,7 @@ export const MainnetTokens: Token[] = [
     mintAddress: "9n4nbM75f5Ui33ZbPYXn59EwSgE8CGsHtAeTH5YFeJ9E",
     icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/bitcoin/info/logo.png",
     decimals: 6,
+    defaultContractSize: 0.01,
   },
   {
     tokenSymbol: "ETH",
@@ -60,6 +62,7 @@ export const MainnetTokens: Token[] = [
     mintAddress: "2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk",
     icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png",
     decimals: 6,
+    defaultContractSize: 0.1, 
   },
   {
     tokenSymbol: "USDC",
