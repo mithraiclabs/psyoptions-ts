@@ -60,6 +60,66 @@ export const MainnetMarkets: OptionMarketMeta[] = [
     "serumMarketAddress": "41tka7KzTitZNW6V3PZHcCZ1Avx5yaqHL1EEayg3zAMT",
     "serumProgramId": "9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin",
     "psyOptionsProgramId": "AAcHauRu6eUDePN3hDDAUTbgyRq5xFbRZJCLsUdpBCJb"
+  },
+  {
+    "expiration": 1632527999,
+    "optionMarketAddress": "5XruanLZqpVvNcuZ5fLjA33mDj7VEQ2n734sWLsxsUzr",
+    "optionContractMintAddress": "8Ye6n5GEqCDidyMJQQ9tWeswtB877HUQRajqVZD8Meku",
+    "optionWriterTokenMintAddress": "FhcxPG8kfCajZYkhjsi6xpARFSu8aHpNzFP6Yn82GRPP",
+    "quoteAssetMint": "2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk",
+    "quoteAssetPoolAddress": "8H62ZjPgqDA7NAbhd7iEAhFsmZZbk5wX1CcQZ4GgV6EC",
+    "underlyingAssetMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "underlyingAssetPoolAddress": "7NoJ4wY3pCBpFpKz97R7E3AN2MFixPEAFwy78WeJQN9B",
+    "underlyingAssetPerContract": "300000000",
+    "quoteAssetPerContract": "100000",
+    "serumMarketAddress": "ANFdZk72cQhLAZWYjas29feafU8jW87E69Yxr86fqZxa",
+    "serumProgramId": "9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin",
+    "psyOptionsProgramId": "AAcHauRu6eUDePN3hDDAUTbgyRq5xFbRZJCLsUdpBCJb"
+  },
+  {
+    "expiration": 1632527999,
+    "optionMarketAddress": "Cc49pvTGGYmH7aCnsxT5AfVgxbyAgtZF4J1MtsYDFYT",
+    "optionContractMintAddress": "9QMUste2oBjmzGjH7C8DpqQuEzHa9VqCoHZqMZmcYZ9G",
+    "optionWriterTokenMintAddress": "5bFhsKF74d7PnMmhWL5er46ttUVMGJMQ15CKwihftTSV",
+    "quoteAssetMint": "2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk",
+    "quoteAssetPoolAddress": "65TGn56gNsVuvbDFDTdhBjCqaE7hBpu5kMamRiqVnE8",
+    "underlyingAssetMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "underlyingAssetPoolAddress": "6avP6e5jeJZHj7ek2MprXCjDXBuW2MWfAFyRBtXmYkZT",
+    "underlyingAssetPerContract": "320000000",
+    "quoteAssetPerContract": "100000",
+    "serumMarketAddress": "idzbBbLM8rWioE7ZdP1iSDbe7n3ZwiGWHVwCWCRbBnD",
+    "serumProgramId": "9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin",
+    "psyOptionsProgramId": "AAcHauRu6eUDePN3hDDAUTbgyRq5xFbRZJCLsUdpBCJb"
+  },
+  {
+    "expiration": 1632527999,
+    "optionMarketAddress": "AKi7t6zHPu7EAXMgm8Yev9mUqbm1hyN1Y4y6qkKR4TGY",
+    "optionContractMintAddress": "HiRM38dnsMw78xXMj1tXQWR5sGhr5MshbC2dRdvi1tZo",
+    "optionWriterTokenMintAddress": "BMJWMQhBZ8pfqnPBzfFpzR9CsPvgA3GTeyKYntxFB8ue",
+    "quoteAssetMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "quoteAssetPoolAddress": "Hmk7xYS7gAMfb53kqhSMCxqMfNxjCYJKAXSHihBXs9NB",
+    "underlyingAssetMint": "2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk",
+    "underlyingAssetPoolAddress": "C7UsEhmefbdU7UUVU6AZNu6creVSQAXjeXATbV8YssKJ",
+    "underlyingAssetPerContract": "100000",
+    "quoteAssetPerContract": "300000000",
+    "serumMarketAddress": "CyzZbNWVJYYPaKZZPj6bsAJCDFNM9fKh69i6ZPaMJhRC",
+    "serumProgramId": "9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin",
+    "psyOptionsProgramId": "AAcHauRu6eUDePN3hDDAUTbgyRq5xFbRZJCLsUdpBCJb"
+  },
+  {
+    "expiration": 1632527999,
+    "optionMarketAddress": "CSZJuHBtnFePAuPN4etdAz24JH82zSKALoZQajfbZpf1",
+    "optionContractMintAddress": "EL85zWaeTDZArqVxhVQLsSBqE3fEJH6QBjWeJAw81sgD",
+    "optionWriterTokenMintAddress": "7KHEvjYmM6xL9KSzePHuAmg5hAtqf73XKZKp6QKmR8Qh",
+    "quoteAssetMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "quoteAssetPoolAddress": "BwCM2nP3mFi7Bk9T9Rh1Yi1syL1ECFGkjEbBMGdzdR35",
+    "underlyingAssetMint": "2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk",
+    "underlyingAssetPoolAddress": "7d4SZvsLLov4EXYHMYoWka5x5NYC88EXWmUkYJ9UkyPW",
+    "underlyingAssetPerContract": "100000",
+    "quoteAssetPerContract": "320000000",
+    "serumMarketAddress": "GN2y6fS7ubWb6MRVP1PNJTbafWvqLVGMxrEA4B5usnja",
+    "serumProgramId": "9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin",
+    "psyOptionsProgramId": "AAcHauRu6eUDePN3hDDAUTbgyRq5xFbRZJCLsUdpBCJb"
   }
 ]
 
