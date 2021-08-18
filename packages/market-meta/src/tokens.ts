@@ -40,14 +40,14 @@ export const DevnetTokens: Token[] = [
 ]
 
 export const MainnetTokens: Token[] = [
-  {
-    tokenSymbol: "SOL",
-    tokenName: "Solana",
-    mintAddress: "So11111111111111111111111111111111111111112",
-    icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/solana/info/logo.png",
-    decimals: 9,
-    defaultContractSize: 10,
-  },
+  // {
+  //   tokenSymbol: "SOL",
+  //   tokenName: "Solana",
+  //   mintAddress: "So11111111111111111111111111111111111111112",
+  //   icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/solana/info/logo.png",
+  //   decimals: 9,
+  //   defaultContractSize: 10,
+  // },
   {
     tokenSymbol: "BTC",
     tokenName: "Wrapped Bitcoin",
