@@ -22,14 +22,11 @@ import { getOrAddAssociatedTokenAccountTx } from "../utils";
  *
  * @param program
  * @param connection
- * @param payer
  * @param params
  * @returns
  */
 export const initializeMarket = async (
   program: anchor.Program,
-  payer: Keypair,
-  connection: Connection,
   {
     expirationUnixTimestamp,
     quoteAmountPerContract,
@@ -59,9 +56,9 @@ export const initializeMarket = async (
       [
         underlyingMint.toBuffer(),
         quoteMint.toBuffer(),
-        underlyingAmountPerContract.toBuffer("le", 8),
-        quoteAmountPerContract.toBuffer("le", 8),
-        expirationUnixTimestamp.toBuffer("le", 8),
+        underlyingAmountPerContract.toArrayLike(Buffer, "le", 8),
+        quoteAmountPerContract.toArrayLike(Buffer, "le", 8),
+        expirationUnixTimestamp.toArrayLike(Buffer, "le", 8),
       ],
       program.programId
     );
@@ -108,10 +105,15 @@ export const initializeMarket = async (
       isWritable: true,
       isSigner: false,
     });
+    const mintFeeAccount = await program.provider.connection.getAccountInfo(
+      mintFeeKey
+    );
+    if (!mintFeeAccount) {
+    }
     const ix = await getOrAddAssociatedTokenAccountTx(
       mintFeeKey,
-      new Token(connection, underlyingMint, program.programId, payer),
-      payer.publicKey,
+      underlyingMint,
+      program.provider,
       FEE_OWNER_KEY
     );
     if (ix) {
@@ -134,8 +136,8 @@ export const initializeMarket = async (
     });
     const ix = await getOrAddAssociatedTokenAccountTx(
       exerciseFeeKey,
-      new Token(connection, quoteMint, program.programId, payer),
-      payer.publicKey,
+      quoteMint,
+      program.provider,
       FEE_OWNER_KEY
     );
     if (ix) {
@@ -150,7 +152,7 @@ export const initializeMarket = async (
     bumpSeed,
     {
       accounts: {
-        authority: payer.publicKey,
+        authority: program.provider.wallet.publicKey,
         feeOwner: FEE_OWNER_KEY,
         optionMarket: optionMarketKey,
         optionMint: optionMintKey,
@@ -167,7 +169,6 @@ export const initializeMarket = async (
       },
       instructions,
       remainingAccounts,
-      signers: [payer],
     }
   );
 
