@@ -6,8 +6,6 @@ import {
 } from "@solana/spl-token";
 import {
   AccountMeta,
-  Connection,
-  Keypair,
   PublicKey,
   SystemProgram,
   SYSVAR_CLOCK_PUBKEY,
@@ -167,7 +165,7 @@ export const initializeMarket = async (
         systemProgram: SystemProgram.programId,
         tokenProgram: TOKEN_PROGRAM_ID,
       },
-      instructions,
+      instructions: instructions.length ? instructions : undefined,
       remainingAccounts,
     }
   );
