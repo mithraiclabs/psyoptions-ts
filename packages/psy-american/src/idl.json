@@ -715,6 +715,11 @@
       "code": 325,
       "name": "CoinMintIsNotOptionMint",
       "msg": "Coin mint must match option mint"
+    },
+    {
+      "code": 326,
+      "name": "CannotPruneActiveMarket",
+      "msg": "Cannot prune the market while it's still active"
     }
   ]
 }
