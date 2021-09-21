@@ -170,6 +170,7 @@ export const getMarketAndAuthorityInfo = async (
   optionMarketKey: PublicKey,
   dexProgramId: PublicKey
 ): Promise<{ serumMarketKey: PublicKey, marketAuthority: PublicKey, marketAuthorityBump: number }> => {
+  // TODO: This needs to change to be more flexible for many Serum Markets
   const [serumMarketKey, _serumMarketBump] = await PublicKey.findProgramAddress(
     [optionMarketKey.toBuffer(), textEncoder.encode("serumMarket")],
     program.programId

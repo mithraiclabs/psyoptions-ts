@@ -17,3 +17,11 @@ export type OptionMarket = {
   expired: boolean;
   bumpSeed: number;
 };
+
+/**
+ * An enumeration to keep track of the different program versions released.
+ */
+export enum ProgramVersions {
+  V1,
+  V1_1
+}
