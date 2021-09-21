@@ -42,7 +42,7 @@ export const newOrderInstruction = async (
 
   // create OpenOrders account
   if (!orderArguments.openOrdersAddressKey) {
-    const {ix} = await initOpenOrdersInstruction(program, program.provider.wallet.publicKey, optionMarketKey, dexProgramId, marketKey, _marketAuthorityBump)
+    // Check that the OpenOrders account does not exist
     const [openOrdersAddressKey, openOrdersBump] = await PublicKey.findProgramAddress(
       [
         textEncoder.encode("open-orders"),
@@ -52,8 +52,15 @@ export const newOrderInstruction = async (
       ],
       program.programId
     );
+    const accountInfo = await program.provider.connection.getAccountInfo(
+      openOrdersAddressKey,
+      'recent',
+    );
     orderArguments.openOrdersAddressKey = openOrdersAddressKey;
-    transaction.add(ix)
+    if (!accountInfo) {
+      const {ix} = await initOpenOrdersInstruction(program, program.provider.wallet.publicKey, optionMarketKey, dexProgramId, marketKey, _marketAuthorityBump)
+      transaction.add(ix)
+    }
   }
 
   const ix = marketProxy.instruction.newOrderV3(orderArguments)
