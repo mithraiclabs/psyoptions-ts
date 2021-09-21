@@ -3,3 +3,4 @@ export * from "./initializeSerumMarket";
 export * from "./mintOptions";
 export * from "./exerciseOptions";
 export * from "./closePosition";
+export * from "./burnWriterForQuote";
