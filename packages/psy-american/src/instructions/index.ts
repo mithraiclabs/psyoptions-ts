@@ -1,4 +1,5 @@
 export * from "./initializeMarket";
 export * from "./initializeSerumMarket";
-export * from "./mintOption";
+export * from "./mintOptions";
+export * from "./exerciseOptions";
 export * from "./closePosition";
