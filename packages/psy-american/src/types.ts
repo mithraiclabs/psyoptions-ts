@@ -1,6 +1,18 @@
 import * as anchor from "@project-serum/anchor";
 import { PublicKey } from "@solana/web3.js";
 
+export enum ClusterName {
+  devnet = 'Devnet',
+  mainnet = 'Mainnet',
+  testnet = 'Testnet',
+  localhost = 'localhost',
+}
+
+export type NetworkInfo = {
+  feeOwnerKey: PublicKey;
+  serumReferrerId: PublicKey;
+}
+
 export type OptionMarket = {
   key: PublicKey;
   optionMint: PublicKey;

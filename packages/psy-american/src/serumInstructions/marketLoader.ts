@@ -1,5 +1,5 @@
 import { BN, Program } from "@project-serum/anchor";
-import { MarketProxyBuilder, Middleware, OpenOrdersPda, ReferralFees } from "@project-serum/serum";
+import { Logger, MarketProxyBuilder, Middleware, OpenOrdersPda, ReferralFees } from "@project-serum/serum";
 import { PublicKey, TransactionInstruction } from "@solana/web3.js";
 
 /**
@@ -27,9 +27,9 @@ export const marketLoader = async (
           dexProgramId: dexProgramId,
         })
       )
-      // .middleware(new Logger())
       .middleware(new ReferralFees())
       .middleware(new Validation(optionMarketKey, marketAuthorityBump))
+      .middleware(new Logger())
       .load({
         connection: program.provider.connection,
         market: marketKey,
