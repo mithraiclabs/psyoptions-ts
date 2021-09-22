@@ -1,7 +1,7 @@
 import * as anchor from "@project-serum/anchor"
 import { AccountMeta, Signer, PublicKey, SystemProgram, SYSVAR_CLOCK_PUBKEY, SYSVAR_RENT_PUBKEY } from "@solana/web3.js";
 import { ASSOCIATED_TOKEN_PROGRAM_ID, Token, TOKEN_PROGRAM_ID } from "@solana/spl-token"
-import { OptionMarket } from "../types"
+import { OptionMarketWithKey } from "../types"
 import { feeAmount, FEE_OWNER_KEY } from "../fees"
 
 /**
@@ -11,7 +11,7 @@ import { feeAmount, FEE_OWNER_KEY } from "../fees"
  * @param {PublicKey} minterWriterAcct - Where the WriterTokens will be sent
  * @param {PublicKey} minterUnderlyingAccount - Where the underlying asset tokens come from
  * @param {anchor.BN} size - The amount of contracts to mint
- * @param {OptionMarket} optionMarket - The OptionMarket data
+ * @param {OptionMarketWithKey} optionMarket - The OptionMarket data
  */
 export const mintOptionsTx = async (
   program: anchor.Program,
@@ -19,7 +19,7 @@ export const mintOptionsTx = async (
   minterWriterAcct: PublicKey,
   minterUnderlyingAccount: PublicKey,
   size: anchor.BN,
-  optionMarket: OptionMarket,
+  optionMarket: OptionMarketWithKey,
 ): Promise<{ tx: string; }> => {
 
   let mintFeeKey: PublicKey,
@@ -81,7 +81,7 @@ export const mintOptionInstruction = async (
   minterWriterAcct: PublicKey,
   minterUnderlyingAccount: PublicKey,
   size: anchor.BN,
-  optionMarket: OptionMarket,
+  optionMarket: OptionMarketWithKey,
 ) => {
   let mintFeeKey: PublicKey,
     remainingAccounts: AccountMeta[] = [];

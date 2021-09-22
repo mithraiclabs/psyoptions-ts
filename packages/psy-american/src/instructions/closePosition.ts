@@ -1,7 +1,7 @@
 import { BN, Program } from "@project-serum/anchor";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { PublicKey, TransactionInstruction } from "@solana/web3.js";
-import { OptionMarket } from "../types";
+import { OptionMarketWithKey } from "../types";
 
 /**
  * Close an option position by burning the OptionTokens and WriterTokens
@@ -16,7 +16,7 @@ import { OptionMarket } from "../types";
 export const closePositionInstruction = (
   program: Program,
   size: BN,
-  optionMarket: OptionMarket,
+  optionMarket: OptionMarketWithKey,
   writerTokenSrc: PublicKey,
   optionTokenSrc: PublicKey,
   underlyingAssetDest: PublicKey

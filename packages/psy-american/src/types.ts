@@ -14,7 +14,6 @@ export type NetworkInfo = {
 }
 
 export type OptionMarket = {
-  key: PublicKey;
   optionMint: PublicKey;
   writerTokenMint: PublicKey;
   underlyingAssetMint: PublicKey;
@@ -29,6 +28,9 @@ export type OptionMarket = {
   expired: boolean;
   bumpSeed: number;
 };
+export type OptionMarketWithKey = OptionMarket & {
+  key: PublicKey;
+}
 
 /**
  * An enumeration to keep track of the different program versions released.

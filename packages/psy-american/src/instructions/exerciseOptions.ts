@@ -1,7 +1,8 @@
 import { BN, Program } from "@project-serum/anchor";
 import { ASSOCIATED_TOKEN_PROGRAM_ID, Token, TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { AccountMeta, PublicKey, SystemProgram, SYSVAR_CLOCK_PUBKEY, TransactionInstruction } from "@solana/web3.js";
-import { feeAmount, FEE_OWNER_KEY, OptionMarket } from "../";
+import { feeAmount, FEE_OWNER_KEY } from "../fees";
+import { OptionMarketWithKey } from "../types"
 
 
 /**
@@ -19,7 +20,7 @@ import { feeAmount, FEE_OWNER_KEY, OptionMarket } from "../";
 export const exerciseOptionsInstruction = async (
   program: Program,
   size: BN,
-  optionMarket: OptionMarket,
+  optionMarket: OptionMarketWithKey,
   exerciserOptionTokenSrc: PublicKey,
   underlyingAssetDest: PublicKey,
   quoteAssetSrc: PublicKey,
