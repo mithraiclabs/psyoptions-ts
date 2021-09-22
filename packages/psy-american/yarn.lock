@@ -57,10 +57,10 @@
     bn.js "^5.1.2"
     buffer-layout "^1.2.0"
 
-"@project-serum/serum@^0.13.59":
-  version "0.13.59"
-  resolved "https://registry.npmjs.org/@project-serum/serum/-/serum-0.13.59.tgz"
-  integrity sha512-ilypihqvhN+Qd62dqfNWRl4DZ5hSKcx9R+GZi1ehXEbzwnQI3rIHCwOpPrerjqckt8XBo7bLlkv/ZD69mNfMlg==
+"@project-serum/serum@^0.13.60":
+  version "0.13.60"
+  resolved "https://registry.yarnpkg.com/@project-serum/serum/-/serum-0.13.60.tgz#abeb3355ebc1895d685250df5965f688502ebcbb"
+  integrity sha512-fGsp9F0ZAS48YQ2HNy+6CNoifJESFXxVsOLPd9QK1XNV8CTuQoECOnVXxV6s5cKGre8pLNq5hrhi5J6aCGauEQ==
   dependencies:
     "@project-serum/anchor" "^0.11.1"
     "@solana/spl-token" "^0.1.6"
