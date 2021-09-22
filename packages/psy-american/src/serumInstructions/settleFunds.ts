@@ -34,7 +34,7 @@ export const settleFundsInstruction = async (
   const marketProxy = await marketLoader(
     program,
     optionMarketKey,
-    marketAuthorityBump,
+    _marketAuthorityBump,
     dexProgramId,
     serumMarketKey
   )

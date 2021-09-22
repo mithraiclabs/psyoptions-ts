@@ -29,7 +29,7 @@ export const cancelOrderInstructionV2 = async (
   const marketProxy = await marketLoader(
     program,
     optionMarketKey,
-    marketAuthorityBump,
+    _marketAuthorityBump,
     dexProgramId,
     serumMarketKey
   )
@@ -61,7 +61,7 @@ export const cancelOrderByClientId = async (
   const marketProxy = await marketLoader(
     program,
     optionMarketKey,
-    marketAuthorityBump,
+    _marketAuthorityBump,
     dexProgramId,
     serumMarketKey
   )
