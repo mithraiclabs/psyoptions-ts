@@ -13,7 +13,10 @@ import {
   TransactionInstruction,
 } from "@solana/web3.js";
 import { feeAmount, FEE_OWNER_KEY } from "../fees";
-import { getOrAddAssociatedTokenAccountTx } from "../utils";
+import {
+  deriveOptionKeyFromParams,
+  getOrAddAssociatedTokenAccountTx,
+} from "../utils";
 
 /**
  * Initialize new type of option
@@ -49,17 +52,14 @@ export const initializeMarket = async (
   const textEncoder = new TextEncoder();
 
   // generate Program Derived Address for the new option
-  const [optionMarketKey, bumpSeed] =
-    await anchor.web3.PublicKey.findProgramAddress(
-      [
-        underlyingMint.toBuffer(),
-        quoteMint.toBuffer(),
-        underlyingAmountPerContract.toArrayLike(Buffer, "le", 8),
-        quoteAmountPerContract.toArrayLike(Buffer, "le", 8),
-        expirationUnixTimestamp.toArrayLike(Buffer, "le", 8),
-      ],
-      program.programId
-    );
+  const [optionMarketKey, bumpSeed] = await deriveOptionKeyFromParams({
+    programId: program.programId,
+    underlyingMint,
+    quoteMint,
+    underlyingAmountPerContract,
+    quoteAmountPerContract,
+    expirationUnixTimestamp,
+  });
 
   // generate Program Derived Address for the Option Token
   const [optionMintKey] = await anchor.web3.PublicKey.findProgramAddress(
