@@ -1,6 +1,6 @@
 {
   "name": "@mithraic-labs/market-meta",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Contains asset and market data relevant to PsyOptions clients",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
