@@ -6,12 +6,12 @@ import { marketLoader } from "./marketLoader"
 /**
  * Create a proxied InitOpenOrdersInstruction
  * 
- * @param program 
- * @param owner 
- * @param optionMarketKey 
- * @param dexProgramId 
- * @param serumMarketKey 
- * @param marketAuthorityBump 
+ * @param program - Anchor Psy American program
+ * @param owner - The user's wallet address
+ * @param optionMarketKey - The OptionMarket address key
+ * @param dexProgramId - Serum DEX id
+ * @param serumMarketKey - The Serum market address
+ * @param marketAuthorityBump - OPTIONAL: pass in the market authority bump seed
  * @returns 
  */
 export const initOpenOrdersInstruction = async (

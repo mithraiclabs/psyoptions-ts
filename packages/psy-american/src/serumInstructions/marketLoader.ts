@@ -5,11 +5,11 @@ import { PublicKey, TransactionInstruction } from "@solana/web3.js";
 /**
  * Create a MarketProxy for the Psy American V 1.1 program
  * 
- * @param program 
- * @param optionMarketKey 
- * @param marketAuthorityBump 
- * @param dexProgramId 
- * @param marketKey 
+ * @param program - Anchor Psy American program
+ * @param optionMarketKey - The OptionMarket address
+ * @param marketAuthorityBump - The marketAuthority bump seed
+ * @param dexProgramId - The Serum DEX program id
+ * @param marketKey - The Serum market address
  * @returns 
  */
 export const marketLoader = async (

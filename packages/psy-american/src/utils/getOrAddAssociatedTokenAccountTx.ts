@@ -7,6 +7,16 @@ import {
 import { FEE_OWNER_KEY } from "../fees";
 import { Provider } from "@project-serum/anchor";
 
+/**
+ * Returns a TransactionInstruction for creating the associated token account 
+ * if one deos not exist.
+ * 
+ * @param associatedAddress - The associated token account address
+ * @param mintKey - The SPL token mint address
+ * @param provider - The Anchor provider that has the wallet
+ * @param owner - The user's address that owns the associated token account
+ * @returns 
+ */
 export const getOrAddAssociatedTokenAccountTx = async (
   associatedAddress: PublicKey,
   mintKey: PublicKey,

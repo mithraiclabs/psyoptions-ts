@@ -19,11 +19,11 @@ import {
 } from "../utils";
 
 /**
- * Initialize new type of option
+ * Initialize a new OptionMarket
  *
- * @param program
- * @param connection
- * @param params
+ * @param program - The Psy American program 
+ * @param connection - Solana connection 
+ * @param params 
  * @returns
  */
 export const initializeMarket = async (
@@ -35,10 +35,17 @@ export const initializeMarket = async (
     underlyingAmountPerContract,
     underlyingMint,
   }: {
+    /** The option market expiration timestamp in seconds */
     expirationUnixTimestamp: anchor.BN;
+    /** The quote amount per contract for the OptionMarket 
+     * Strike price is derived from underlyingAmountPerContract & quoteAmountPerContract */
     quoteAmountPerContract: anchor.BN;
+    /** The quote asset mint */
     quoteMint: PublicKey;
+    /** The underlying amount per contract for the OptionMarket. *
+     * Strike price is derived from underlyingAmountPerContract & quoteAmountPerContract */
     underlyingAmountPerContract: anchor.BN;
+    /** The underlying mint address */
     underlyingMint: PublicKey;
   }
 ): Promise<{

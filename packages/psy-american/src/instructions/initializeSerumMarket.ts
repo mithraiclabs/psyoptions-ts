@@ -15,6 +15,12 @@ const textEncoder = new TextEncoder();
 // b"open-orders-init"
 const OPEN_ORDERS_INIT_SEED = textEncoder.encode("open-orders-init");
 
+/**
+ * 
+ * @param program - Anchor Psy American Program
+ * @param param1 
+ * @returns 
+ */
 export const initializeSerumMarket = async (
   program: Program,
   {
@@ -28,14 +34,23 @@ export const initializeSerumMarket = async (
     pcMint,
     serumProgramKey,
   }: {
+    /** The address for the new Serum market's eventual Event Queue */
     eventQueue?: PublicKey;
+    /** The address for the new Serum market's bids */
     bids?: PublicKey;
+    /** The address for the new Serum market's asks */
     asks?: PublicKey;
+    /** The OptionMarket address that owns the OptionToken mint */
     optionMarketKey: PublicKey;
+    /** The OptionToken's Mint address. This is the base token for the Serum market */
     optionMint: PublicKey;
+    /** Serum market's dust threshold for the price currency */
     pcDustThreshold: BN;
+    /** Serum market's price currency lot size */
     pcLotSize: BN;
+    /** The Serum's price currency mint */
     pcMint: PublicKey;
+    /** The Serum DEX program ID */
     serumProgramKey: PublicKey;
   }
 ): Promise<{
@@ -159,6 +174,8 @@ export const initializeSerumMarket = async (
 };
 
 /**
+ * Given an OptionMarket address and DEX program, generate the Serum market key,
+ * market authority, and authority bump seed.
  * 
  * @param {Program} program - PsyOptions American V1 Anchor program
  * @param {PublicKey} optionMarketKey - The key for the OptionMarket
