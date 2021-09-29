@@ -4,6 +4,15 @@ import { PublicKey } from "@solana/web3.js";
 
 const textEncoder = new TextEncoder();
 
+/**
+ * Load the open orders for a user based on the Serum DEX and Serum Market 
+ * address.
+ * 
+ * @param program - Anchor Psy American program 
+ * @param dexProgramId - Serum DEX program id
+ * @param serumMarketAddress - Serum market address
+ * @returns 
+ */
 export const findOpenOrdersAccountsForOwner = async (
   program: Program,
   dexProgramId: PublicKey,
