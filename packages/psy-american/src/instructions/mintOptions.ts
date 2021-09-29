@@ -5,6 +5,7 @@ import { OptionMarketWithKey } from "../types"
 import { feeAmount, FEE_OWNER_KEY } from "../fees"
 
 /**
+ * Execute a transaction to mint _size_ options
  * 
  * @param {anchor.Program} program - Anchor Program for the PsyAmerican program and the minter as the provider wallet
  * @param {PublicKey} minterOptionAcct - Where the OptionTokens will be sent
@@ -66,7 +67,7 @@ export const mintOptionsTx = async (
 };
 
 /**
- * Create a TransactionInstruction for minting contracts
+ * Create a TransactionInstruction for minting _size_ option contracts
  * 
  * @param {anchor.Program} program - Anchor Program for the PsyAmerican program and the minter as the provider wallet
  * @param {PublicKey} minterOptionAcct - Where the OptionTokens will be sent

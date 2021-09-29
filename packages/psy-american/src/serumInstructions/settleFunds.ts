@@ -4,16 +4,17 @@ import { getMarketAndAuthorityInfo } from "../instructions";
 import { marketLoader } from "./marketLoader";
 
 /**
+ * Create a TransactionInstruction for the settleFunds instruction
  * 
- * @param program 
- * @param optionMarketKey 
- * @param dexProgramId 
- * @param serumMarketKey 
- * @param baseWallet 
- * @param quoteWallet 
- * @param serumReferralKey 
- * @param marketAuthorityBump 
- * @param openOrdersKey 
+ * @param program - Anchor Psy American Program
+ * @param optionMarketKey - The OptionMarket address
+ * @param dexProgramId - The Serum DEX program ID
+ * @param serumMarketKey - The Serum market address
+ * @param baseWallet - The wallet address that contains the user's base asset tokens
+ * @param quoteWallet - The wallet address that contains the user's quote asset tokens
+ * @param serumReferralKey - The Psy American referral address for the quote asset
+ * @param openOrdersKey - The open orders keys
+ * @param marketAuthorityBump - OPTIONAL: pass in the market authority bump seed
  * @returns 
  */
 export const settleFundsInstruction = async (

@@ -5,6 +5,7 @@ import { getMarketAndAuthorityInfo } from "../instructions";
 import { marketLoader } from "./marketLoader";
 
 /**
+ * Create a TransactionInstruction for canceling a specific _order_
  * 
  * @param program - Anchor Program for Psy American
  * @param optionMarketKey - The address of the OptionMarket for the option in the Seurm Market
@@ -37,6 +38,7 @@ export const cancelOrderInstructionV2 = async (
 }
 
 /**
+ * Generate a `TransactionInstruction` for canceling an open order by the set clientId
  * 
  * @param program - Anchor Program for Psy American
  * @param optionMarketKey - The address of the OptionMarket for the option in the Seurm Market

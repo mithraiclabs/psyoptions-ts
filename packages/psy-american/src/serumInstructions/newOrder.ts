@@ -10,12 +10,12 @@ const textEncoder = new TextEncoder();
 /**
  * Create a new order proxied through the Psy American Protocol
  * 
- * @param program 
- * @param optionMarketKey 
- * @param dexProgramId 
- * @param marketKey 
- * @param orderArguments 
- * @param marketAuthorityBump 
+ * @param program - Anchor Psy American program
+ * @param optionMarketKey - The OptionMarket address
+ * @param dexProgramId - The Serum DEX program ID
+ * @param marketKey - The Serum market address
+ * @param orderArguments - The Serum OrderParams 
+ * @param marketAuthorityBump - OPTIONAL: pass in the market authority bump seed
  * @returns 
  */
 export const newOrderInstruction = async (

@@ -25,6 +25,7 @@ export const exerciseOptionsInstruction = async (
   underlyingAssetDest: PublicKey,
   quoteAssetSrc: PublicKey,
   opts: {
+    /** The authority account that owns the options */
     optionAuthority?: PublicKey
   } = {}
 ): Promise<TransactionInstruction> => {
