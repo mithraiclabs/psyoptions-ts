@@ -1,9 +1,9 @@
-import { BN, Program } from "@project-serum/anchor";
+import { Program } from "@project-serum/anchor";
 import { PublicKey, Transaction } from "@solana/web3.js";
-import { OrderParams } from "@project-serum/serum/lib/market";
 import { marketLoader } from "./marketLoader";
 import { getMarketAndAuthorityInfo } from "../instructions";
 import { initOpenOrdersInstruction } from "./initOpenOrders";
+import { OrderParamsWithFeeRate } from "../types";
 
 const textEncoder = new TextEncoder();
 
@@ -23,7 +23,7 @@ export const newOrderInstruction = async (
   optionMarketKey: PublicKey,
   dexProgramId: PublicKey,
   marketKey: PublicKey,
-  orderArguments: OrderParams<PublicKey>,
+  orderArguments: OrderParamsWithFeeRate<PublicKey>,
   marketAuthorityBump: number|undefined = undefined,
 ): Promise<Transaction> => {
   const transaction = new Transaction();
@@ -61,6 +61,10 @@ export const newOrderInstruction = async (
       const {ix} = await initOpenOrdersInstruction(program, program.provider.wallet.publicKey, optionMarketKey, dexProgramId, marketKey, _marketAuthorityBump)
       transaction.add(ix)
     }
+  }
+
+  if (orderArguments.feeRate) {
+    orderArguments.price = orderArguments.price * (1 + orderArguments.feeRate)
   }
 
   const ix = marketProxy.instruction.newOrderV3(orderArguments)

@@ -1,4 +1,5 @@
 import * as anchor from "@project-serum/anchor";
+import { OrderParams } from "@project-serum/serum/lib/market";
 import { PublicKey } from "@solana/web3.js";
 
 export enum ClusterName {
@@ -30,6 +31,10 @@ export type OptionMarket = {
 };
 export type OptionMarketWithKey = OptionMarket & {
   key: PublicKey;
+}
+
+export type OrderParamsWithFeeRate<T> = OrderParams<T> & {
+  feeRate?: number;
 }
 
 /**
