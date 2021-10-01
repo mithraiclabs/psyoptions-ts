@@ -2,7 +2,7 @@ import * as anchor from "@project-serum/anchor"
 import { AccountMeta, Signer, PublicKey, SystemProgram, SYSVAR_CLOCK_PUBKEY, SYSVAR_RENT_PUBKEY } from "@solana/web3.js";
 import { ASSOCIATED_TOKEN_PROGRAM_ID, Token, TOKEN_PROGRAM_ID } from "@solana/spl-token"
 import { OptionMarketWithKey } from "../types"
-import { feeAmount, FEE_OWNER_KEY } from "../fees"
+import { feeAmountPerContract, FEE_OWNER_KEY } from "../fees"
 
 /**
  * Execute a transaction to mint _size_ options
@@ -27,8 +27,8 @@ export const mintOptionsTx = async (
     remainingAccounts: AccountMeta[] = [];
 
   // Add the mint fee account if the market requires one
-  const mintFee = feeAmount(optionMarket.underlyingAmountPerContract);
-  if (mintFee.gtn(0)) {
+  const mintFeePerContract = feeAmountPerContract(optionMarket.underlyingAmountPerContract);
+  if (mintFeePerContract.gtn(0)) {
     mintFeeKey = await Token.getAssociatedTokenAddress(
       ASSOCIATED_TOKEN_PROGRAM_ID,
       TOKEN_PROGRAM_ID,
@@ -88,8 +88,8 @@ export const mintOptionInstruction = async (
     remainingAccounts: AccountMeta[] = [];
 
   // Add the mint fee account if the market requires one
-  const mintFee = feeAmount(optionMarket.underlyingAmountPerContract);
-  if (mintFee.gtn(0)) {
+  const mintFeePerContract = feeAmountPerContract(optionMarket.underlyingAmountPerContract);
+  if (mintFeePerContract.gtn(0)) {
     mintFeeKey = await Token.getAssociatedTokenAddress(
       ASSOCIATED_TOKEN_PROGRAM_ID,
       TOKEN_PROGRAM_ID,

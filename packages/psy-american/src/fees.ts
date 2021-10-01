@@ -20,6 +20,6 @@ export const NFT_MINT_LAMPORTS = LAMPORTS_PER_SOL / 2;
  * @param assetQuantity - Quantity of the asset being used to mint or exercise
  * @returns 
  */
-export const feeAmount = (assetQuantity: anchor.BN) => {
+export const feeAmountPerContract = (assetQuantity: anchor.BN) => {
   return assetQuantity.div(new anchor.BN(10_000 / 5));
 };

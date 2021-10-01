@@ -12,7 +12,7 @@ import {
   SYSVAR_RENT_PUBKEY,
   TransactionInstruction,
 } from "@solana/web3.js";
-import { feeAmount, FEE_OWNER_KEY } from "../fees";
+import { feeAmountPerContract, FEE_OWNER_KEY } from "../fees";
 import {
   deriveOptionKeyFromParams,
   getOrAddAssociatedTokenAccountTx,
@@ -97,8 +97,8 @@ export const initializeMarket = async (
   // be created.
   const remainingAccounts: AccountMeta[] = [];
   const instructions: TransactionInstruction[] = [];
-  const mintFee = feeAmount(underlyingAmountPerContract);
-  if (mintFee.gtn(0)) {
+  const mintFeePerContract = feeAmountPerContract(underlyingAmountPerContract);
+  if (mintFeePerContract.gtn(0)) {
     const mintFeeKey = await Token.getAssociatedTokenAddress(
       ASSOCIATED_TOKEN_PROGRAM_ID,
       TOKEN_PROGRAM_ID,
@@ -126,8 +126,8 @@ export const initializeMarket = async (
     }
   }
 
-  const exerciseFee = feeAmount(quoteAmountPerContract);
-  if (exerciseFee.gtn(0)) {
+  const exerciseFeePerContract = feeAmountPerContract(quoteAmountPerContract);
+  if (exerciseFeePerContract.gtn(0)) {
     const exerciseFeeKey = await Token.getAssociatedTokenAddress(
       ASSOCIATED_TOKEN_PROGRAM_ID,
       TOKEN_PROGRAM_ID,
