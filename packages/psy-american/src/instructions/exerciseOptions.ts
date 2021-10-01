@@ -1,7 +1,7 @@
 import { BN, Program } from "@project-serum/anchor";
 import { ASSOCIATED_TOKEN_PROGRAM_ID, Token, TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { AccountMeta, PublicKey, SystemProgram, SYSVAR_CLOCK_PUBKEY, TransactionInstruction } from "@solana/web3.js";
-import { feeAmount, FEE_OWNER_KEY } from "../fees";
+import { feeAmountPerContract, FEE_OWNER_KEY } from "../fees";
 import { OptionMarketWithKey } from "../types"
 
 
@@ -32,8 +32,8 @@ export const exerciseOptionsInstruction = async (
   let exerciseFeeKey: PublicKey;
   let remainingAccounts: AccountMeta[] = [];
 
-  const exerciseFee = feeAmount(optionMarket.quoteAmountPerContract);
-  if (exerciseFee.gtn(0)) {
+  const exerciseFeePerContract = feeAmountPerContract(optionMarket.quoteAmountPerContract);
+  if (exerciseFeePerContract.gtn(0)) {
     exerciseFeeKey = await Token.getAssociatedTokenAddress(
       ASSOCIATED_TOKEN_PROGRAM_ID,
       TOKEN_PROGRAM_ID,
