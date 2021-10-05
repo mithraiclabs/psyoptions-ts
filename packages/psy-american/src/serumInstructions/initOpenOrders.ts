@@ -1,6 +1,6 @@
 import { Program } from "@project-serum/anchor"
 import { PublicKey, SystemProgram, TransactionInstruction } from "@solana/web3.js"
-import { getMarketAndAuthorityInfo } from "../instructions";
+import { getMarketAndAuthorityInfo } from "../serumUtils";
 import { marketLoader } from "./marketLoader"
 
 /**

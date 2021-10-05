@@ -29,6 +29,7 @@ export type OptionMarket = {
   expired: boolean;
   bumpSeed: number;
 };
+
 export type OptionMarketWithKey = OptionMarket & {
   key: PublicKey;
 }

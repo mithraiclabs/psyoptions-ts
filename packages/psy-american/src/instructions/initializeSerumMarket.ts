@@ -9,11 +9,10 @@ import {
   SYSVAR_RENT_PUBKEY,
   TransactionInstruction,
 } from "@solana/web3.js";
+import { getMarketAndAuthorityInfo } from "../serumUtils";
 import { getVaultOwnerAndNonce } from "../utils";
 
 const textEncoder = new TextEncoder();
-// b"open-orders-init"
-const OPEN_ORDERS_INIT_SEED = textEncoder.encode("open-orders-init");
 
 /**
  * 
@@ -171,36 +170,4 @@ export const initializeSerumMarket = async (
     serumMarketKey,
     tx,
   };
-};
-
-/**
- * Given an OptionMarket address and DEX program, generate the Serum market key,
- * market authority, and authority bump seed.
- * 
- * @param {Program} program - PsyOptions American V1 Anchor program
- * @param {PublicKey} optionMarketKey - The key for the OptionMarket
- * @param {PublicKey} dexProgramId - Serum DEX public key
- * @returns 
- */
-export const getMarketAndAuthorityInfo = async (
-  program: Program,
-  optionMarketKey: PublicKey,
-  dexProgramId: PublicKey
-): Promise<{ serumMarketKey: PublicKey, marketAuthority: PublicKey, marketAuthorityBump: number }> => {
-  // TODO: This needs to change to be more flexible for many Serum Markets
-  const [serumMarketKey, _serumMarketBump] = await PublicKey.findProgramAddress(
-    [optionMarketKey.toBuffer(), textEncoder.encode("serumMarket")],
-    program.programId
-  );
-  const [marketAuthority, marketAuthorityBump] =
-    await PublicKey.findProgramAddress(
-      [
-        OPEN_ORDERS_INIT_SEED,
-        dexProgramId.toBuffer(),
-        serumMarketKey.toBuffer(),
-      ],
-      program.programId
-    );
-
-  return { serumMarketKey, marketAuthority, marketAuthorityBump };
 };
