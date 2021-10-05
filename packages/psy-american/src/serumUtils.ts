@@ -88,13 +88,18 @@ export const findOpenOrdersForOptionMarkets = async (
   // Batch load the raw OpenOrders data
   const openOrdersInfos = await program.provider.connection.getMultipleAccountsInfo(openOrdersKeys);
   // Deserialize the OpenOrders info
-  return openOrdersInfos.map((info, index) => 
-    new OpenOrders(
+  const openOrders: OpenOrders[] = [];
+  openOrdersInfos.forEach((info, index) => {
+    if (!info) return;
+    
+    openOrders.push(new OpenOrders(
       openOrdersKeys[index], 
       OpenOrders.getLayout(serumProgramId).decode(info.data), 
       serumProgramId
-    )
-  )
+    ));
+  });
+
+  return openOrders;
 }
 
 export const deriveSerumMarketAddress = async (
