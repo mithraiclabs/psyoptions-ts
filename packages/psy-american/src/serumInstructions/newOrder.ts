@@ -1,7 +1,7 @@
 import { Program } from "@project-serum/anchor";
 import { PublicKey, Transaction } from "@solana/web3.js";
 import { marketLoader } from "./marketLoader";
-import { getMarketAndAuthorityInfo } from "../instructions";
+import { getMarketAndAuthorityInfo } from "../serumUtils";
 import { initOpenOrdersInstruction } from "./initOpenOrders";
 import { OrderParamsWithFeeRate } from "../types";
 
