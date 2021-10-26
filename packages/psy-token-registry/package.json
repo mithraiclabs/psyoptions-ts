@@ -1,0 +1,39 @@
+{
+  "name": "@mithraic-labs/psy-token-registry",
+  "version": "0.0.3",
+  "description": "Meta data for the SPL Tokens with PsyOption options",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:package": "yarn clean && rollup -c",
+    "clean": "rimraf ./dist",
+    "prepublishOnly": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "type-check": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mithraiclabs/psyoptions-ts.git"
+  },
+  "keywords": [
+    "psyoptions"
+  ],
+  "author": "Mithraic Labs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mithraiclabs/psyoptions-ts/issues"
+  },
+  "homepage": "https://github.com/mithraiclabs/psyoptions-ts#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "rollup": "^2.53.1",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {}
+}
