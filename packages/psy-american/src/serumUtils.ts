@@ -1,7 +1,7 @@
 import { Program } from "@project-serum/anchor";
 import { OpenOrders } from "@project-serum/serum";
-import { PublicKey } from "@solana/web3.js";
-import { OptionMarketWithKey } from "./types";
+import { AccountInfo, PublicKey } from "@solana/web3.js";
+import { chunkArray } from "./utils";
 
 const textEncoder = new TextEncoder();
 // b"open-orders-init"
@@ -86,7 +86,13 @@ export const findOpenOrdersForOptionMarkets = async (
   }));
 
   // Batch load the raw OpenOrders data
-  const openOrdersInfos = await program.provider.connection.getMultipleAccountsInfo(openOrdersKeys);
+  const groupOfOpenOrdersKeys: PublicKey[][] = chunkArray(openOrdersKeys, 100);
+  const getMultipleAccountsForOpenOrdersKeys: Promise<AccountInfo<Buffer>[]>[] = groupOfOpenOrdersKeys.map(openOrdersKeys => {
+    return program.provider.connection.getMultipleAccountsInfo(openOrdersKeys);
+  });
+  const results = await Promise.all(getMultipleAccountsForOpenOrdersKeys);
+  const openOrdersInfos: AccountInfo<Buffer>[] = results.flat();
+  
   // Deserialize the OpenOrders info
   const openOrders: OpenOrders[] = [];
   openOrdersInfos.forEach((info, index) => {
