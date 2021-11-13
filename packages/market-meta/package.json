@@ -1,6 +1,6 @@
 {
   "name": "@mithraic-labs/market-meta",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "Contains asset and market data relevant to PsyOptions clients",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -8,6 +8,7 @@
     "build": "tsc",
     "build:package": "yarn clean && rollup -c",
     "clean": "rimraf ./dist",
+    "prepublishOnly": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit"
   },
