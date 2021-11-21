@@ -20,7 +20,7 @@ export const initOpenOrdersInstruction = async (
   optionMarketKey: PublicKey,
   dexProgramId: PublicKey,
   serumMarketKey: PublicKey,
-  marketAuthorityBump: number|undefined
+  marketAuthorityBump: number|undefined = undefined
 ): Promise<{ix: TransactionInstruction}> => {
   let _marketAuthorityBump = marketAuthorityBump;
   if (!marketAuthorityBump) {
