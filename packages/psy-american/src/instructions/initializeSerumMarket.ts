@@ -71,7 +71,7 @@ export const initializeSerumMarket = async (
   );
 
   const { serumMarketKey, marketAuthority } =
-    await getMarketAndAuthorityInfo(program, optionMarketKey, serumProgramKey);
+    await getMarketAndAuthorityInfo(program, optionMarketKey, serumProgramKey, pcMint);
   const [vaultOwner, vaultSignerNonce] = await getVaultOwnerAndNonce(
     serumMarketKey,
     serumProgramKey

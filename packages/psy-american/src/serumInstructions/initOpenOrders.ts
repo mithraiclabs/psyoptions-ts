@@ -1,6 +1,6 @@
 import { Program } from "@project-serum/anchor"
 import { PublicKey, SystemProgram, TransactionInstruction } from "@solana/web3.js"
-import { getMarketAndAuthorityInfo } from "../serumUtils";
+import { deriveMarketAuthority } from "../serumUtils";
 import { marketLoader } from "./marketLoader"
 
 /**
@@ -23,8 +23,13 @@ export const initOpenOrdersInstruction = async (
   marketAuthorityBump: number|undefined = undefined
 ): Promise<{ix: TransactionInstruction}> => {
   let _marketAuthorityBump = marketAuthorityBump;
-  if (!marketAuthorityBump) {
-    ({ marketAuthorityBump: _marketAuthorityBump } = await getMarketAndAuthorityInfo(program, optionMarketKey, dexProgramId));
+  if (!_marketAuthorityBump) {
+    const [marketAuthority, bump] = await deriveMarketAuthority(
+      program,
+      dexProgramId,
+      serumMarketKey
+    );
+    _marketAuthorityBump = bump;
   }
   const marketProxy = await marketLoader(
     program,

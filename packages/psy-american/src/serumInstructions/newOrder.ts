@@ -1,7 +1,7 @@
 import { Program } from "@project-serum/anchor";
 import { PublicKey, Transaction } from "@solana/web3.js";
 import { marketLoader } from "./marketLoader";
-import { getMarketAndAuthorityInfo } from "../serumUtils";
+import { deriveMarketAuthority } from "../serumUtils";
 import { initOpenOrdersInstruction } from "./initOpenOrders";
 import { OrderParamsWithFeeRate } from "../types";
 
@@ -13,7 +13,7 @@ const textEncoder = new TextEncoder();
  * @param program - Anchor Psy American program
  * @param optionMarketKey - The OptionMarket address
  * @param dexProgramId - The Serum DEX program ID
- * @param marketKey - The Serum market address
+ * @param serumMarketKey - The Serum market address
  * @param orderArguments - The Serum OrderParams
  * @param marketAuthorityBump - OPTIONAL: pass in the market authority bump seed
  * @returns
@@ -22,16 +22,20 @@ export const newOrderInstruction = async (
   program: Program,
   optionMarketKey: PublicKey,
   dexProgramId: PublicKey,
-  marketKey: PublicKey,
+  serumMarketKey: PublicKey,
   orderArguments: OrderParamsWithFeeRate<PublicKey>,
   marketAuthorityBump: number | undefined = undefined
 ): Promise<{ openOrdersKey: PublicKey; tx: Transaction }> => {
   const transaction = new Transaction();
   let _openOrdersKey = orderArguments.openOrdersAddressKey;
   let _marketAuthorityBump = marketAuthorityBump;
-  if (!marketAuthorityBump) {
-    ({ marketAuthorityBump: _marketAuthorityBump } =
-      await getMarketAndAuthorityInfo(program, optionMarketKey, dexProgramId));
+  if (!_marketAuthorityBump) {
+    const [marketAuthority, bump] = await deriveMarketAuthority(
+      program,
+      dexProgramId,
+      serumMarketKey
+    );
+    _marketAuthorityBump = bump;
   }
 
   const marketProxy = await marketLoader(
@@ -39,7 +43,7 @@ export const newOrderInstruction = async (
     optionMarketKey,
     _marketAuthorityBump,
     dexProgramId,
-    marketKey
+    serumMarketKey
   );
 
   // create OpenOrders account
@@ -65,7 +69,7 @@ export const newOrderInstruction = async (
         program.provider.wallet.publicKey,
         optionMarketKey,
         dexProgramId,
-        marketKey,
+        serumMarketKey,
         _marketAuthorityBump
       );
       transaction.add(ix);

@@ -1,6 +1,6 @@
 import { Program } from "@project-serum/anchor";
 import { PublicKey } from "@solana/web3.js";
-import { getMarketAndAuthorityInfo } from "../serumUtils";
+import { deriveMarketAuthority } from "../serumUtils";
 import { marketLoader } from "./marketLoader";
 
 /**
@@ -30,7 +30,12 @@ export const settleFundsInstruction = async (
 ) => {
   let _marketAuthorityBump = marketAuthorityBump;
   if (!marketAuthorityBump) {
-    ({ marketAuthorityBump: _marketAuthorityBump } = await getMarketAndAuthorityInfo(program, optionMarketKey, dexProgramId));
+    const [marketAuthority, bump] = await deriveMarketAuthority(
+      program,
+      dexProgramId,
+      serumMarketKey
+    );
+    _marketAuthorityBump = bump;
   }
   const marketProxy = await marketLoader(
     program,
