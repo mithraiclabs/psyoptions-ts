@@ -150,6 +150,45 @@ export const deriveMarketAuthority = async (
     program.programId
   );
 
+
+export const deriveRequestQueue = (
+  program: Program,
+  optionMarketKey: PublicKey,
+  priceCurrencyKey: PublicKey,
+) => PublicKey.findProgramAddress(
+    [
+      optionMarketKey.toBuffer(),
+      priceCurrencyKey.toBuffer(),
+      textEncoder.encode("requestQueue"),
+    ],
+    program.programId
+  );
+
+export const deriveCoinVault = (
+  program: Program,
+  optionMarketKey: PublicKey,
+  priceCurrencyKey: PublicKey,
+) =>  PublicKey.findProgramAddress(
+    [
+      optionMarketKey.toBuffer(),
+      priceCurrencyKey.toBuffer(),
+      textEncoder.encode("coinVault"),
+    ],
+    program.programId
+  );
+
+export const derivePCVault = (
+  program: Program,
+  optionMarketKey: PublicKey,
+  priceCurrencyKey: PublicKey,
+) => PublicKey.findProgramAddress(
+    [
+      optionMarketKey.toBuffer(),
+      priceCurrencyKey.toBuffer(),
+      textEncoder.encode("pcVault"),
+    ],
+    program.programId
+  );
 /**
  * Given an OptionMarket address and DEX program, generate the Serum market key,
  * market authority, and authority bump seed.

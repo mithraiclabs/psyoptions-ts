@@ -9,7 +9,7 @@ import {
   SYSVAR_RENT_PUBKEY,
   TransactionInstruction,
 } from "@solana/web3.js";
-import { getMarketAndAuthorityInfo } from "../serumUtils";
+import { deriveCoinVault, derivePCVault, deriveRequestQueue, getMarketAndAuthorityInfo } from "../serumUtils";
 import { getVaultOwnerAndNonce } from "../utils";
 
 const textEncoder = new TextEncoder();
@@ -57,18 +57,12 @@ export const initializeSerumMarket = async (
   serumMarketKey: PublicKey;
   tx: string;
 }> => {
-  const [requestQueue] = await PublicKey.findProgramAddress(
-    [optionMarketKey.toBuffer(), textEncoder.encode("requestQueue")],
-    program.programId
-  );
-  const [coinVault] = await PublicKey.findProgramAddress(
-    [optionMarketKey.toBuffer(), textEncoder.encode("coinVault")],
-    program.programId
-  );
-  const [pcVault] = await PublicKey.findProgramAddress(
-    [optionMarketKey.toBuffer(), textEncoder.encode("pcVault")],
-    program.programId
-  );
+  
+  const [requestQueue] = await deriveRequestQueue(program, optionMarketKey, pcMint);
+  
+  const [coinVault] = await deriveCoinVault(program, optionMarketKey, pcMint);
+
+  const [pcVault] = await derivePCVault(program, optionMarketKey, pcMint);
 
   const { serumMarketKey, marketAuthority } =
     await getMarketAndAuthorityInfo(program, optionMarketKey, serumProgramKey, pcMint);
