@@ -65,22 +65,57 @@ export const findOpenOrdersAccountsForOwner = async (
  * @param program - Anchor Psy American program
  * @param serumProgramId - Serum DEX program id
  * @param optionMarketKeys - Keys for the Psy American OptionMarket's to load the open orders from
+ * @param priceCurrencyKey - Key of the pc (aka quote currency) from the serum markets
+ * @param optionMetaList - Optional list of option meta data to pull serum market data from instead of deriving
+ * the address. This is for backwards compatibility
  * @returns
  */
 export const findOpenOrdersForOptionMarkets = async (
   program: Program,
   serumProgramId: PublicKey,
   optionMarketKeys: PublicKey[],
-  priceCurrencyKey: PublicKey
+  priceCurrencyKey: PublicKey,
+  optionMetaList?: {
+    expiration: number;
+    optionMarketAddress: string;
+    optionContractMintAddress: string;
+    optionWriterTokenMintAddress: string;
+    quoteAssetMint: string;
+    quoteAssetPoolAddress: string;
+    underlyingAssetMint: string;
+    underlyingAssetPoolAddress: string;
+    underlyingAssetPerContract: string;
+    quoteAssetPerContract: string;
+    serumMarketAddress: string;
+    serumProgramId: string;
+    psyOptionsProgramId: string;
+  }[]
 ) => {
   const openOrdersKeys = await Promise.all(
     optionMarketKeys.map(async (optionMarketKey) => {
-      // Derive the serum market address from the OptionMarket key
-      const [serumMarketKey, _serumMarketBump] = await deriveSerumMarketAddress(
-        program,
-        optionMarketKey,
-        priceCurrencyKey
-      );
+      // TODO check if option market key exists on market meta
+      let serumMarketKey: PublicKey;
+      if (optionMetaList) {
+        // default to the serum address in the provided list of options.
+        // This is necessary to keep backwards compatibility for option
+        // markets in 2021.
+        const serumMarketAddress = optionMetaList.find(
+          (option) => option.optionMarketAddress === optionMarketKey.toString()
+        )?.serumMarketAddress;
+        if (serumMarketAddress) {
+          serumMarketKey = new PublicKey(serumMarketAddress);
+        }
+      }
+      if (!serumMarketKey) {
+        // Derive the serum market address from the OptionMarket key
+        const [_serumMarketKey, _serumMarketBump] =
+          await deriveSerumMarketAddress(
+            program,
+            optionMarketKey,
+            priceCurrencyKey
+          );
+        serumMarketKey = _serumMarketKey;
+      }
 
       // Derive the user's OpenOrders account address from the Serum market data
       const [openOrdersAddressKey, openOrdersBump] =
@@ -150,12 +185,12 @@ export const deriveMarketAuthority = async (
     program.programId
   );
 
-
 export const deriveRequestQueue = (
   program: Program,
   optionMarketKey: PublicKey,
-  priceCurrencyKey: PublicKey,
-) => PublicKey.findProgramAddress(
+  priceCurrencyKey: PublicKey
+) =>
+  PublicKey.findProgramAddress(
     [
       optionMarketKey.toBuffer(),
       priceCurrencyKey.toBuffer(),
@@ -167,8 +202,9 @@ export const deriveRequestQueue = (
 export const deriveCoinVault = (
   program: Program,
   optionMarketKey: PublicKey,
-  priceCurrencyKey: PublicKey,
-) =>  PublicKey.findProgramAddress(
+  priceCurrencyKey: PublicKey
+) =>
+  PublicKey.findProgramAddress(
     [
       optionMarketKey.toBuffer(),
       priceCurrencyKey.toBuffer(),
@@ -180,8 +216,9 @@ export const deriveCoinVault = (
 export const derivePCVault = (
   program: Program,
   optionMarketKey: PublicKey,
-  priceCurrencyKey: PublicKey,
-) => PublicKey.findProgramAddress(
+  priceCurrencyKey: PublicKey
+) =>
+  PublicKey.findProgramAddress(
     [
       optionMarketKey.toBuffer(),
       priceCurrencyKey.toBuffer(),
