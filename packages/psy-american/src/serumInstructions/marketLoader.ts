@@ -17,27 +17,32 @@ export const marketLoader = async (
   optionMarketKey: PublicKey,
   marketAuthorityBump: number,
   dexProgramId: PublicKey,
-  marketKey: PublicKey
+  marketKey: PublicKey,
+  opts: {
+    enableLogger: boolean
+  } = {
+    enableLogger: false
+  }
 ) => {
-  return (
-    new MarketProxyBuilder()
-      .middleware(
-        new OpenOrdersPda({
-          proxyProgramId: program.programId,
-          dexProgramId: dexProgramId,
-        })
-      )
-      .middleware(new ReferralFees())
-      .middleware(new Validation(optionMarketKey, marketAuthorityBump))
-      .middleware(new Logger())
-      .load({
-        connection: program.provider.connection,
-        market: marketKey,
-        dexProgramId: dexProgramId,
+  let marketProxy = new MarketProxyBuilder()
+    .middleware(
+      new OpenOrdersPda({
         proxyProgramId: program.programId,
-        options: { commitment: "recent" },
+        dexProgramId: dexProgramId,
       })
-  );
+    )
+    .middleware(new ReferralFees())
+    .middleware(new Validation(optionMarketKey, marketAuthorityBump));
+  if (opts.enableLogger) {
+    marketProxy = marketProxy.middleware(new Logger());
+  }
+  return marketProxy.load({
+      connection: program.provider.connection,
+      market: marketKey,
+      dexProgramId: dexProgramId,
+      proxyProgramId: program.programId,
+      options: { commitment: "recent" },
+    })
 };
 
 export class Validation implements Middleware {
