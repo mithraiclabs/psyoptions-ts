@@ -1,8 +1,9 @@
-import { Program } from "@project-serum/anchor";
+import { BN, Program } from "@project-serum/anchor";
 import { Order } from "@project-serum/serum/lib/market";
 import { PublicKey, TransactionInstruction } from "@solana/web3.js";
 import {
   deriveMarketAuthority,
+  findOpenOrdersAccountsForOwner,
 } from "../serumUtils";
 import { marketLoader } from "./marketLoader";
 
@@ -87,4 +88,65 @@ export const cancelOrderByClientId = async (
     order.openOrdersAddress,
     order.clientId
   );
+};
+
+const one = new BN(1);
+
+/**
+ * Create an array of TransactionInstructions to cancel all of the wallet's orders for a given 
+ * OptionMarket and SerumMarket.
+ * 
+ * NOTE: Current implementation does not account for Transaction packet size limitations. It 
+ * is on the client to slice the instructions to be within the limits.
+ * 
+ * @param program - Anchor Program for Psy American
+ * @param optionMarketKey - The address of the OptionMarket for the option in the Seurm Market
+ * @param dexProgramId - The PublicKey of the DEX program
+ * @param serumMarketKey - The PublicKey of the Serum market
+ * @returns 
+ */
+export const cancelAllOpenOrders = async (
+  program: Program,
+  optionMarketKey: PublicKey,
+  dexProgramId: PublicKey,
+  serumMarketKey: PublicKey
+): Promise<TransactionInstruction[]> => {
+  const instructions: TransactionInstruction[] = [];
+  // get the provider's open orders for the market
+  const openOrdersAccounts = await findOpenOrdersAccountsForOwner(
+    program,
+    dexProgramId,
+    serumMarketKey
+  );
+
+  // create array of instructions to cancel the orders.
+  await Promise.all(
+    openOrdersAccounts.map(async (openOrders) => {
+      await Promise.all(
+        openOrders.orders.map(async (orderId, index) => {
+          if (!orderId.isZero()) {
+            const oneClone = one.clone().shln(index);
+            // @ts-ignore: isBidBits issue
+            const isAsk = oneClone.and(openOrders.isBidBits).isZero();
+            const orderInfo = {
+              orderId: orderId,
+              openOrdersAddress: openOrders.address,
+              openOrdersSlot: index,
+              side: isAsk ? "sell" : "buy",
+            };
+            instructions.push(
+              await cancelOrderInstructionV2(
+                program,
+                optionMarketKey,
+                dexProgramId,
+                serumMarketKey,
+                orderInfo as Order
+              )
+            );
+          }
+        })
+      );
+    })
+  );
+  return instructions;
 };
