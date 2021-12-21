@@ -143,21 +143,19 @@ export const findOpenOrdersForOptionMarkets = async (
   const results = await Promise.all(getMultipleAccountsForOpenOrdersKeys);
   const openOrdersInfos: AccountInfo<Buffer>[] = results.flat();
 
-  // Deserialize the OpenOrders info
-  const openOrders: OpenOrders[] = [];
+  const openOrdersByOptionMarket: Record<string, OpenOrders> = {};
+  // Deserialize the OpenOrders info and store mapped by Option key
   openOrdersInfos.forEach((info, index) => {
     if (!info) return;
-
-    openOrders.push(
+    openOrdersByOptionMarket[optionMarketKeys[index].toString()] =
       new OpenOrders(
         openOrdersKeys[index],
         OpenOrders.getLayout(serumProgramId).decode(info.data),
         serumProgramId
-      )
-    );
+      );
   });
 
-  return openOrders;
+  return openOrdersByOptionMarket;
 };
 
 export const deriveSerumMarketAddress = async (
