@@ -51,6 +51,25 @@ export const mainnet: ClusterEnv = {
       coingeckoId: "solana",
     },
   },
+  mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So: {
+    chainId: 101,
+    address: "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+    symbol: "mSOL",
+    name: "Marinade staked SOL (mSOL)",
+    decimals: 9,
+    logoURI:
+      "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So/logo.png",
+    extensions: {
+      coingeckoId: "msol",
+      discord: "https://discord.gg/mGqZA5pjRN",
+      github: "https://github.com/marinade-finance",
+      medium: "https://medium.com/marinade-finance",
+      serumV3Usdc: "6oGsL2puUgySccKzn9XA9afqF217LfxP5ocq4B3LWsjy",
+      twitter: "https://twitter.com/MarinadeFinance",
+      website: "https://marinade.finance",
+    },
+    tags: [],
+  },
   EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v: {
     chainId: 101,
     address: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
