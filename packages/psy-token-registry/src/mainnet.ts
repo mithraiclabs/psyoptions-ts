@@ -85,4 +85,22 @@ export const mainnet: ClusterEnv = {
       serumV3Usdt: "77quYg4MGneUdjgXCunt9GgM1usmrxKY31twEy3WHwcS",
     },
   },
+  Ea5SjE2Y6yvCeW5dYTn7PYMuW5ikXkvbGdcmSnXeaLjS: {
+    chainId: 101,
+    address: "Ea5SjE2Y6yvCeW5dYTn7PYMuW5ikXkvbGdcmSnXeaLjS",
+    symbol: "PAI",
+    name: "PAI (Parrot USD)",
+    decimals: 6,
+    logoURI:
+      "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/Ea5SjE2Y6yvCeW5dYTn7PYMuW5ikXkvbGdcmSnXeaLjS/logo.svg",
+    tags: ["utility-token", "stablecoin"],
+    extensions: {
+      coingeckoId: "parrot-usd",
+      discord: "https://discord.gg/gopartyparrot",
+      medium: "https://gopartyparrot.medium.com/",
+      telegram: "https://t.me/gopartyparrot",
+      twitter: "https://twitter.com/gopartyparrot",
+      website: "https://parrot.fi",
+    },
+  },
 };
