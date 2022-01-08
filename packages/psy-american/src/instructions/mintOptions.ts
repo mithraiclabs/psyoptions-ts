@@ -1,12 +1,23 @@
-import * as anchor from "@project-serum/anchor"
-import { AccountMeta, Signer, PublicKey, SystemProgram, SYSVAR_CLOCK_PUBKEY, SYSVAR_RENT_PUBKEY } from "@solana/web3.js";
-import { ASSOCIATED_TOKEN_PROGRAM_ID, Token, TOKEN_PROGRAM_ID } from "@solana/spl-token"
-import { OptionMarketWithKey } from "../types"
-import { feeAmountPerContract, FEE_OWNER_KEY } from "../fees"
+import * as anchor from "@project-serum/anchor";
+import {
+  AccountMeta,
+  Signer,
+  PublicKey,
+  SystemProgram,
+  SYSVAR_CLOCK_PUBKEY,
+  SYSVAR_RENT_PUBKEY,
+} from "@solana/web3.js";
+import {
+  ASSOCIATED_TOKEN_PROGRAM_ID,
+  Token,
+  TOKEN_PROGRAM_ID,
+} from "@solana/spl-token";
+import { OptionMarketWithKey } from "../types";
+import { feeAmountPerContract, FEE_OWNER_KEY } from "../fees";
 
 /**
  * Execute a transaction to mint _size_ options
- * 
+ *
  * @param {anchor.Program} program - Anchor Program for the PsyAmerican program and the minter as the provider wallet
  * @param {PublicKey} minterOptionAcct - Where the OptionTokens will be sent
  * @param {PublicKey} minterWriterAcct - Where the WriterTokens will be sent
@@ -20,20 +31,21 @@ export const mintOptionsTx = async (
   minterWriterAcct: PublicKey,
   minterUnderlyingAccount: PublicKey,
   size: anchor.BN,
-  optionMarket: OptionMarketWithKey,
-): Promise<{ tx: string; }> => {
-
+  optionMarket: OptionMarketWithKey
+): Promise<{ tx: string }> => {
   let mintFeeKey: PublicKey,
     remainingAccounts: AccountMeta[] = [];
 
   // Add the mint fee account if the market requires one
-  const mintFeePerContract = feeAmountPerContract(optionMarket.underlyingAmountPerContract);
+  const mintFeePerContract = feeAmountPerContract(
+    optionMarket.underlyingAmountPerContract
+  );
   if (mintFeePerContract.gtn(0)) {
     mintFeeKey = await Token.getAssociatedTokenAddress(
       ASSOCIATED_TOKEN_PROGRAM_ID,
       TOKEN_PROGRAM_ID,
       optionMarket.underlyingAssetMint,
-      FEE_OWNER_KEY,
+      FEE_OWNER_KEY
     );
     remainingAccounts.push({
       pubkey: mintFeeKey,
@@ -62,13 +74,13 @@ export const mintOptionsTx = async (
     remainingAccounts,
   });
   return {
-    tx
-  }
+    tx,
+  };
 };
 
 /**
  * Create a TransactionInstruction for minting _size_ option contracts
- * 
+ *
  * @param {anchor.Program} program - Anchor Program for the PsyAmerican program and the minter as the provider wallet
  * @param {PublicKey} minterOptionAcct - Where the OptionTokens will be sent
  * @param {PublicKey} minterWriterAcct - Where the WriterTokens will be sent
@@ -82,19 +94,21 @@ export const mintOptionInstruction = async (
   minterWriterAcct: PublicKey,
   minterUnderlyingAccount: PublicKey,
   size: anchor.BN,
-  optionMarket: OptionMarketWithKey,
+  optionMarket: OptionMarketWithKey
 ) => {
   let mintFeeKey: PublicKey,
     remainingAccounts: AccountMeta[] = [];
 
   // Add the mint fee account if the market requires one
-  const mintFeePerContract = feeAmountPerContract(optionMarket.underlyingAmountPerContract);
+  const mintFeePerContract = feeAmountPerContract(
+    optionMarket.underlyingAmountPerContract
+  );
   if (mintFeePerContract.gtn(0)) {
     mintFeeKey = await Token.getAssociatedTokenAddress(
       ASSOCIATED_TOKEN_PROGRAM_ID,
       TOKEN_PROGRAM_ID,
       optionMarket.underlyingAssetMint,
-      FEE_OWNER_KEY,
+      FEE_OWNER_KEY
     );
     remainingAccounts.push({
       pubkey: mintFeeKey,
@@ -102,8 +116,8 @@ export const mintOptionInstruction = async (
       isSigner: false,
     });
   }
-  
-  const signers: Signer[] = []
+
+  const signers: Signer[] = [];
   const ix = program.instruction.mintOption(size, {
     accounts: {
       userAuthority: program.provider.wallet.publicKey,
@@ -125,5 +139,42 @@ export const mintOptionInstruction = async (
     remainingAccounts,
   });
 
-  return {ix, signers}
-}
+  return { ix, signers };
+};
+
+/**
+ * Create a TransactionInstruction for minting _size_ option contracts using V2 instruction
+ *
+ * @param {anchor.Program} program - Anchor Program for the PsyAmerican program and the minter as the provider wallet
+ * @param {PublicKey} minterOptionAcct - Where the OptionTokens will be sent
+ * @param {PublicKey} minterWriterAcct - Where the WriterTokens will be sent
+ * @param {PublicKey} minterUnderlyingAccount - Where the underlying asset tokens come from
+ * @param {anchor.BN} size - The amount of contracts to mint
+ * @param {OptionMarket} optionMarket - The OptionMarket data
+ */
+export const mintOptionV2Instruction = async (
+  program: anchor.Program,
+  minterOptionAcct: PublicKey,
+  minterWriterAcct: PublicKey,
+  minterUnderlyingAccount: PublicKey,
+  size: anchor.BN,
+  optionMarket: OptionMarketWithKey
+) => {
+  const signers: Signer[] = [];
+  const ix = program.instruction.mintOptionV2(size, {
+    accounts: {
+      userAuthority: program.provider.wallet.publicKey,
+      underlyingAssetMint: optionMarket?.underlyingAssetMint,
+      underlyingAssetPool: optionMarket.underlyingAssetPool,
+      underlyingAssetSrc: minterUnderlyingAccount,
+      optionMint: optionMarket?.optionMint,
+      mintedOptionDest: minterOptionAcct,
+      writerTokenMint: optionMarket?.writerTokenMint,
+      mintedWriterTokenDest: minterWriterAcct,
+      optionMarket: optionMarket?.key,
+      tokenProgram: TOKEN_PROGRAM_ID,
+    },
+  });
+
+  return { ix, signers };
+};
