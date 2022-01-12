@@ -4,6 +4,7 @@ import { marketLoader } from "./marketLoader";
 import { deriveMarketAuthority } from "../serumUtils";
 import { initOpenOrdersInstruction } from "./initOpenOrders";
 import { OrderParamsWithFeeRate } from "../types";
+import { PsyAmerican } from "../psyAmericanTypes";
 
 const textEncoder = new TextEncoder();
 
@@ -19,7 +20,7 @@ const textEncoder = new TextEncoder();
  * @returns
  */
 export const newOrderInstruction = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   optionMarketKey: PublicKey,
   dexProgramId: PublicKey,
   serumMarketKey: PublicKey,

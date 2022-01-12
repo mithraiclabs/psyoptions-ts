@@ -9,10 +9,9 @@ import {
   SYSVAR_RENT_PUBKEY,
   TransactionInstruction,
 } from "@solana/web3.js";
+import { PsyAmerican } from "../psyAmericanTypes";
 import { deriveCoinVault, derivePCVault, deriveRequestQueue, getMarketAndAuthorityInfo } from "../serumUtils";
 import { getVaultOwnerAndNonce } from "../utils";
-
-const textEncoder = new TextEncoder();
 
 /**
  * 
@@ -21,7 +20,7 @@ const textEncoder = new TextEncoder();
  * @returns 
  */
 export const initializeSerumMarket = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   {
     asks,
     bids,

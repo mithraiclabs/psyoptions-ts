@@ -2,6 +2,7 @@ import { Program } from "@project-serum/anchor";
 import { Market } from "@project-serum/serum";
 import { ASSOCIATED_TOKEN_PROGRAM_ID, Token, TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { PublicKey } from "@solana/web3.js";
+import { PsyAmerican } from "../psyAmericanTypes";
 import { FEE_OWNER_KEY } from "../fees";
 import { deriveMarketAuthority } from "../serumUtils";
 import { marketLoader } from "./marketLoader";
@@ -21,7 +22,7 @@ import { marketLoader } from "./marketLoader";
  * @returns 
  */
 export const settleFundsInstruction = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   optionMarketKey: PublicKey,
   dexProgramId: PublicKey,
   serumMarketKey: PublicKey,
@@ -71,7 +72,7 @@ export const settleFundsInstruction = async (
  * @returns 
  */
 export const settleMarketFundsInstruction = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   optionMarketKey: PublicKey,
   dexProgramId: PublicKey,
   serumMarket: Market,

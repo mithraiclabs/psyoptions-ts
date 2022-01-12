@@ -1,6 +1,7 @@
 import { BN, Program } from "@project-serum/anchor";
 import { Order } from "@project-serum/serum/lib/market";
 import { PublicKey, TransactionInstruction } from "@solana/web3.js";
+import { PsyAmerican } from "../psyAmericanTypes";
 import {
   deriveMarketAuthority,
   findOpenOrdersAccountsForOwner,
@@ -19,7 +20,7 @@ import { marketLoader } from "./marketLoader";
  * @returns
  */
 export const cancelOrderInstructionV2 = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   optionMarketKey: PublicKey,
   dexProgramId: PublicKey,
   serumMarketKey: PublicKey,
@@ -60,7 +61,7 @@ export const cancelOrderInstructionV2 = async (
  * @returns
  */
 export const cancelOrderByClientId = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   optionMarketKey: PublicKey,
   dexProgramId: PublicKey,
   serumMarketKey: PublicKey,
@@ -106,7 +107,7 @@ const one = new BN(1);
  * @returns 
  */
 export const cancelAllOpenOrders = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   optionMarketKey: PublicKey,
   dexProgramId: PublicKey,
   serumMarketKey: PublicKey

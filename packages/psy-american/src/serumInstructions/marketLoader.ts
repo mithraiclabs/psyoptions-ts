@@ -1,6 +1,7 @@
 import { BN, Program } from "@project-serum/anchor";
 import { Logger, MarketProxyBuilder, Middleware, OpenOrdersPda, ReferralFees } from "@project-serum/serum";
 import { PublicKey, TransactionInstruction } from "@solana/web3.js";
+import { PsyAmerican } from "../psyAmericanTypes";
 
 /**
  * Create a MarketProxy for the Psy American V 1.1 program
@@ -13,7 +14,7 @@ import { PublicKey, TransactionInstruction } from "@solana/web3.js";
  * @returns 
  */
 export const marketLoader = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   optionMarketKey: PublicKey,
   marketAuthorityBump: number,
   dexProgramId: PublicKey,

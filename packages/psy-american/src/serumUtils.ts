@@ -1,6 +1,7 @@
 import { Program } from "@project-serum/anchor";
 import { OpenOrders } from "@project-serum/serum";
 import { AccountInfo, PublicKey } from "@solana/web3.js";
+import { PsyAmerican } from "./psyAmericanTypes";
 import { chunkArray } from "./utils";
 
 const textEncoder = new TextEncoder();
@@ -16,7 +17,7 @@ const OPEN_ORDERS_INIT_SEED = textEncoder.encode("open-orders-init");
  * @returns
  */
 export const findOpenOrdersAccountsForOwner = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   dexProgramId: PublicKey,
   serumMarketAddress: PublicKey
 ) => {
@@ -71,7 +72,7 @@ export const findOpenOrdersAccountsForOwner = async (
  * @returns
  */
 export const findOpenOrdersForOptionMarkets = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   serumProgramId: PublicKey,
   optionMarketKeys: PublicKey[],
   priceCurrencyKey: PublicKey,
@@ -159,7 +160,7 @@ export const findOpenOrdersForOptionMarkets = async (
 };
 
 export const deriveSerumMarketAddress = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   optionMarketKey: PublicKey,
   priceCurrencyKey: PublicKey
 ) => {
@@ -174,7 +175,7 @@ export const deriveSerumMarketAddress = async (
 };
 
 export const deriveMarketAuthority = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   dexProgramId: PublicKey,
   serumMarketKey: PublicKey
 ) =>
@@ -184,7 +185,7 @@ export const deriveMarketAuthority = async (
   );
 
 export const deriveRequestQueue = (
-  program: Program,
+  program: Program<PsyAmerican>,
   optionMarketKey: PublicKey,
   priceCurrencyKey: PublicKey
 ) =>
@@ -198,7 +199,7 @@ export const deriveRequestQueue = (
   );
 
 export const deriveCoinVault = (
-  program: Program,
+  program: Program<PsyAmerican>,
   optionMarketKey: PublicKey,
   priceCurrencyKey: PublicKey
 ) =>
@@ -212,7 +213,7 @@ export const deriveCoinVault = (
   );
 
 export const derivePCVault = (
-  program: Program,
+  program: Program<PsyAmerican>,
   optionMarketKey: PublicKey,
   priceCurrencyKey: PublicKey
 ) =>
@@ -234,7 +235,7 @@ export const derivePCVault = (
  * @returns
  */
 export const getMarketAndAuthorityInfo = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   optionMarketKey: PublicKey,
   dexProgramId: PublicKey,
   priceCurrencyKey: PublicKey

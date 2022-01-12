@@ -14,6 +14,7 @@ import {
 } from "@solana/spl-token";
 import { OptionMarketWithKey } from "../types";
 import { feeAmountPerContract, FEE_OWNER_KEY } from "../fees";
+import { PsyAmerican } from "../psyAmericanTypes";
 
 /**
  * Execute a transaction to mint _size_ options
@@ -26,7 +27,7 @@ import { feeAmountPerContract, FEE_OWNER_KEY } from "../fees";
  * @param {OptionMarketWithKey} optionMarket - The OptionMarket data
  */
 export const mintOptionsTx = async (
-  program: anchor.Program,
+  program: anchor.Program<PsyAmerican>,
   minterOptionAcct: PublicKey,
   minterWriterAcct: PublicKey,
   minterUnderlyingAccount: PublicKey,
@@ -89,7 +90,7 @@ export const mintOptionsTx = async (
  * @param {OptionMarket} optionMarket - The OptionMarket data
  */
 export const mintOptionInstruction = async (
-  program: anchor.Program,
+  program: anchor.Program<PsyAmerican>,
   minterOptionAcct: PublicKey,
   minterWriterAcct: PublicKey,
   minterUnderlyingAccount: PublicKey,
@@ -153,7 +154,7 @@ export const mintOptionInstruction = async (
  * @param {OptionMarket} optionMarket - The OptionMarket data
  */
 export const mintOptionV2Instruction = async (
-  program: anchor.Program,
+  program: anchor.Program<PsyAmerican>,
   minterOptionAcct: PublicKey,
   minterWriterAcct: PublicKey,
   minterUnderlyingAccount: PublicKey,
