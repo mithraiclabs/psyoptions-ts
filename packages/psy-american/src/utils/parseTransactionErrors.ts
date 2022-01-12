@@ -3,4 +3,4 @@ import IDL from "../idl.json";
 
 const idlErrors = parseIdlErrors(IDL as Idl);
 
-export const parseTranactionError = (error: any) => ProgramError.parse(error, idlErrors);
+export const parseTransactionError = (error: any) => ProgramError.parse(error, idlErrors);
