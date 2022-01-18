@@ -13,7 +13,7 @@ import { PublicKey } from "@solana/web3.js";
 export const getVaultOwnerAndNonce = async (
   marketPublicKey: PublicKey,
   dexProgramId: PublicKey
-) => {
+): Promise<[PublicKey, BN]> => {
   const nonce = new BN(0);
   while (nonce.toNumber() < 255) {
     try {

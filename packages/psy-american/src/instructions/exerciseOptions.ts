@@ -67,3 +67,46 @@ export const exerciseOptionsInstruction = async (
     remainingAccounts,
   });
 }
+
+
+/**
+ * Exercise OptionTokens you're holding without fees!
+ * 
+ * @param program - Anchor Program for Psy American
+ * @param size - The amount of options to exercise
+ * @param optionMarket - The OptionMarket data from the chain for the options to exercise
+ * @param exerciserOptionTokenSrc - The SPL Token address holding the OptionTokens
+ * @param underlyingAssetDest - The SPL Token address where the underlying assets will be sent
+ * @param quoteAssetSrc - The SPL Token address holding the quote asset used to exercise
+ * @param opts 
+ * @returns 
+ */
+ export const exerciseOptionsV2Instruction = (
+  program: Program,
+  size: BN,
+  optionMarket: OptionMarketWithKey,
+  exerciserOptionTokenSrc: PublicKey,
+  underlyingAssetDest: PublicKey,
+  quoteAssetSrc: PublicKey,
+  opts: {
+    /** The authority account that owns the options */
+    optionAuthority?: PublicKey
+  } = {}
+): TransactionInstruction => {
+
+  return program.instruction.exerciseOptionV2(size, {
+    accounts: {
+      userAuthority: program.provider.wallet.publicKey,
+      optionAuthority: opts.optionAuthority || program.provider.wallet.publicKey,
+      optionMarket: optionMarket.key,
+      optionMint: optionMarket.optionMint,
+      exerciserOptionTokenSrc,
+      underlyingAssetPool: optionMarket.underlyingAssetPool,
+      underlyingAssetDest,
+      quoteAssetPool: optionMarket.quoteAssetPool,
+      quoteAssetSrc,
+      tokenProgram: TOKEN_PROGRAM_ID,
+      systemProgram: SystemProgram.programId,
+    },
+  });
+}

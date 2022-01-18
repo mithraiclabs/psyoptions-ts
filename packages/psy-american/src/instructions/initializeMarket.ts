@@ -12,6 +12,7 @@ import {
   SYSVAR_RENT_PUBKEY,
   TransactionInstruction,
 } from "@solana/web3.js";
+import { PsyAmerican } from "../psyAmericanTypes";
 import { feeAmountPerContract, FEE_OWNER_KEY } from "../fees";
 import {
   deriveOptionKeyFromParams,
@@ -27,7 +28,7 @@ import {
  * @returns
  */
 export const initializeMarket = async (
-  program: anchor.Program,
+  program: anchor.Program<PsyAmerican>,
   {
     expirationUnixTimestamp,
     quoteAmountPerContract,

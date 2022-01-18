@@ -1,6 +1,7 @@
 import { BN, Program } from "@project-serum/anchor";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { PublicKey, SYSVAR_CLOCK_PUBKEY, TransactionInstruction } from "@solana/web3.js";
+import { PsyAmerican } from "../psyAmericanTypes";
 import { OptionMarketWithKey } from "../types";
 
 /**
@@ -14,7 +15,7 @@ import { OptionMarketWithKey } from "../types";
  * @param underlyingAssetDest - The SPL Token address where the underlying assets will be sent
  */
 export const closePostExpirationInstruction = (
-  program: Program,
+  program: Program<PsyAmerican>,
   size: BN,
   optionMarket: OptionMarketWithKey,
   writerTokenSrc: PublicKey,

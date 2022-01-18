@@ -1,6 +1,7 @@
 import { BN, Program } from "@project-serum/anchor";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { PublicKey, TransactionInstruction } from "@solana/web3.js";
+import { PsyAmerican } from "../psyAmericanTypes";
 import { OptionMarketWithKey } from "../types";
 
 /**
@@ -15,7 +16,7 @@ import { OptionMarketWithKey } from "../types";
  * @param writerQuoteDest - SPL Token account that is the destination for the quote assets
  */
 export const burnWriterForQuote = (
-  program: Program,
+  program: Program<PsyAmerican>,
   size: BN,
   optionMarket: OptionMarketWithKey,
   writerTokenSrc: PublicKey,

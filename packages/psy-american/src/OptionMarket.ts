@@ -1,4 +1,5 @@
 import { Program, ProgramAccount } from "@project-serum/anchor";
+import { PsyAmerican } from "./psyAmericanTypes";
 import { OptionMarket, OptionMarketWithKey } from "./types";
 
 /**
@@ -7,7 +8,7 @@ import { OptionMarket, OptionMarketWithKey } from "./types";
  * @param program - Anchor Psy American program 
  * @returns 
  */
-export const getAllOptionAccounts = async (program: Program): Promise<OptionMarketWithKey[]> => {
+export const getAllOptionAccounts = async (program: Program<PsyAmerican>): Promise<OptionMarketWithKey[]> => {
   const accts = (await program.account.optionMarket.all()) as unknown as ProgramAccount<OptionMarket>[]
   return accts.map(acct => ({
     ...acct.account,

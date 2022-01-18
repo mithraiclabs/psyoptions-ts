@@ -1,9 +1,10 @@
 import { Program, ProgramAccount } from "@project-serum/anchor";
 import { PublicKey } from "@solana/web3.js";
+import { PsyAmerican } from "../psyAmericanTypes";
 import { OptionMarket, OptionMarketWithKey } from "../types";
 
 export const getOptionByKey = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   key: PublicKey
 ): Promise<OptionMarketWithKey | null> => {
   try {

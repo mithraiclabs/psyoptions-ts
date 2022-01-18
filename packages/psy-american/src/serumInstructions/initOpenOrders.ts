@@ -1,5 +1,6 @@
 import { Program } from "@project-serum/anchor"
 import { PublicKey, SystemProgram, TransactionInstruction } from "@solana/web3.js"
+import { PsyAmerican } from "../psyAmericanTypes";
 import { deriveMarketAuthority } from "../serumUtils";
 import { marketLoader } from "./marketLoader"
 
@@ -15,7 +16,7 @@ import { marketLoader } from "./marketLoader"
  * @returns 
  */
 export const initOpenOrdersInstruction = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   owner: PublicKey,
   optionMarketKey: PublicKey,
   dexProgramId: PublicKey,
