@@ -1,6 +1,7 @@
 import { BN, Program } from "@project-serum/anchor";
 import { ASSOCIATED_TOKEN_PROGRAM_ID, Token, TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { AccountMeta, PublicKey, SystemProgram, SYSVAR_CLOCK_PUBKEY, TransactionInstruction } from "@solana/web3.js";
+import { PsyAmerican } from "../psyAmericanTypes";
 import { feeAmountPerContract, FEE_OWNER_KEY } from "../fees";
 import { OptionMarketWithKey } from "../types"
 
@@ -18,7 +19,7 @@ import { OptionMarketWithKey } from "../types"
  * @returns 
  */
 export const exerciseOptionsInstruction = async (
-  program: Program,
+  program: Program<PsyAmerican>,
   size: BN,
   optionMarket: OptionMarketWithKey,
   exerciserOptionTokenSrc: PublicKey,
@@ -82,7 +83,7 @@ export const exerciseOptionsInstruction = async (
  * @returns 
  */
  export const exerciseOptionsV2Instruction = (
-  program: Program,
+  program: Program<PsyAmerican>,
   size: BN,
   optionMarket: OptionMarketWithKey,
   exerciserOptionTokenSrc: PublicKey,
@@ -106,7 +107,6 @@ export const exerciseOptionsInstruction = async (
       quoteAssetPool: optionMarket.quoteAssetPool,
       quoteAssetSrc,
       tokenProgram: TOKEN_PROGRAM_ID,
-      systemProgram: SystemProgram.programId,
     },
   });
 }
