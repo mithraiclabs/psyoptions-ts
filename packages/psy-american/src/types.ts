@@ -2,8 +2,6 @@ import * as anchor from "@project-serum/anchor";
 import { OrderParams } from "@project-serum/serum/lib/market";
 import { PublicKey } from "@solana/web3.js";
 
-export { PsyAmerican } from './psyAmericanTypes'
-
 export enum ClusterName {
   devnet = 'Devnet',
   mainnet = 'Mainnet',
