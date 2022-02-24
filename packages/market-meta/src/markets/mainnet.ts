@@ -2256,7 +2256,8 @@ export const MainnetMarkets: OptionMarketMeta[] = [
     expiration: 1651392000,
     optionMarketAddress: "ABSkR8BjfNNDrzNvc9s6ZdzwjCxQRpBrqJKJqubVgvzZ",
     optionContractMintAddress: "etCPUaMghWobVwxug5Vgxb6r3A7DEBdLKUywrnDrJeZ",
-    optionWriterTokenMintAddress: "6oQs7qM64xaAmHTmfaDkEJMX7N8Vo5BjB4Z6BEFqZGeP",
+    optionWriterTokenMintAddress:
+      "6oQs7qM64xaAmHTmfaDkEJMX7N8Vo5BjB4Z6BEFqZGeP",
     quoteAssetMint: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
     quoteAssetPoolAddress: "4wgyDo96huobnZDnvHk98Z6CkNne69y8XpzZ62LrP6RT",
     underlyingAssetMint: "GePFQaZKHcWE5vpxHfviQtH5jgxokSs51Y5Q4zgBiMDs",
@@ -2266,7 +2267,8 @@ export const MainnetMarkets: OptionMarketMeta[] = [
     serumMarketAddress: "8TAd5ARuq5mYdY3t3PamRaE5Gf95JqgSpVmgTDwYyVXY",
     serumProgramId: "9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin",
     psyOptionsProgramId: "R2y9ip6mxmWUj4pt54jP2hz2dgvMozy9VTSwMWE7evs",
-  }, {
+  },
+  {
     expiration: 1648195200,
     optionMarketAddress: "FsVxDCEkns35GP1RprVTem5iw2T44SLAXtafJw4h9nMu",
     optionContractMintAddress: "7Q5q2fuBcpw4b8XSdUnm3NNPWiJdQV3m4cnz7K9h3Jmi",
@@ -2551,5 +2553,5 @@ export const MainnetMarkets: OptionMarketMeta[] = [
     serumMarketAddress: "BV6QDRmKNVa2ZQXzidXsC8H98eqaGw6q5CJeMXGi1LgK",
     serumProgramId: "9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin",
     psyOptionsProgramId: "R2y9ip6mxmWUj4pt54jP2hz2dgvMozy9VTSwMWE7evs",
-  }, 
+  },
 ];
