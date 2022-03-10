@@ -119,4 +119,22 @@ export const mainnet: ClusterEnv = {
       website: "https://jungledefi.io/",
     },
   },
+  "5oVNBeEEQvYi1cX3ir8Dx5n1P7pdxydbGF2X4TxVusJm": {
+    chainId: 101,
+    address: "5oVNBeEEQvYi1cX3ir8Dx5n1P7pdxydbGF2X4TxVusJm",
+    symbol: "scnSOL",
+    name: "Socean staked SOL",
+    decimals: 9,
+    logoURI:
+      "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/5oVNBeEEQvYi1cX3ir8Dx5n1P7pdxydbGF2X4TxVusJm/logo.png",
+    tags: ["stake-pool"],
+    extensions: {
+      coingeckoId: "socean-staked-sol",
+      discord: "https://discord.gg/k8ZcW27bq9",
+      medium: "https://medium.com/@soceanfinance",
+      serumV3Usdc: "D52sefGCWho2nd5UGxWd7wCftAzeNEMNYZkdEPGEdQTb",
+      twitter: "https://twitter.com/soceanfinance",
+      website: "https://socean.fi/",
+    },
+  },
 };
