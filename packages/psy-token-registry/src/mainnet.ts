@@ -137,4 +137,21 @@ export const mainnet: ClusterEnv = {
       website: "https://socean.fi/",
     },
   },
+  SRMuApVNdxXokk5GT7XD5cUUgXMBCoAz2LHeuAoKWRt: {
+    chainId: 101,
+    address: "SRMuApVNdxXokk5GT7XD5cUUgXMBCoAz2LHeuAoKWRt",
+    symbol: "SRM",
+    name: "Serum",
+    decimals: 6,
+    logoURI:
+      "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/SRMuApVNdxXokk5GT7XD5cUUgXMBCoAz2LHeuAoKWRt/logo.png",
+    tags: [],
+    extensions: {
+      coingeckoId: "serum",
+      serumV3Usdc: "ByRys5tuUWDgL73G8JBAEfkdFf8JWBzPBDHsBVQ5vbQA",
+      serumV3Usdt: "AtNnsY1AyRERWJ8xCskfz38YdvruWVJQUVXgScC1iPb",
+      waterfallbot: "https://bit.ly/SRMwaterfall",
+      website: "https://projectserum.com/",
+    },
+  },
 };
