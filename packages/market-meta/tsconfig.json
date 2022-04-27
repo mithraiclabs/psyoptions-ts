@@ -12,6 +12,7 @@
       "sourceMap": true,
       "outDir": "dist",
       "baseUrl": ".",
+      "noEmit": true,
       "paths": {
           "*": [
               "node_modules/*"
