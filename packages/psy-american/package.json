@@ -2,7 +2,7 @@
   "name": "@mithraic-labs/psy-american",
   "version": "0.1.3",
   "description": "PsyOptions American style options protocol (anchor)",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [
     "dist"
