@@ -158,6 +158,7 @@ export const initializeMarket = async (
     bumpSeed,
     {
       accounts: {
+        // @ts-ignore
         authority: program.provider.wallet.publicKey,
         feeOwner: FEE_OWNER_KEY,
         optionMarket: optionMarketKey,

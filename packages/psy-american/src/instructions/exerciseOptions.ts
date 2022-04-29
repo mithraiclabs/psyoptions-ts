@@ -51,7 +51,9 @@ export const exerciseOptionsInstruction = async (
   }
   return program.instruction.exerciseOption(size, {
     accounts: {
+      // @ts-ignore
       userAuthority: program.provider.wallet.publicKey,
+      // @ts-ignore
       optionAuthority: opts.optionAuthority || program.provider.wallet.publicKey,
       optionMarket: optionMarket.key,
       optionMint: optionMarket.optionMint,
@@ -97,7 +99,9 @@ export const exerciseOptionsInstruction = async (
 
   return program.instruction.exerciseOptionV2(size, {
     accounts: {
+      // @ts-ignore
       userAuthority: program.provider.wallet.publicKey,
+      // @ts-ignore
       optionAuthority: opts.optionAuthority || program.provider.wallet.publicKey,
       optionMarket: optionMarket.key,
       optionMint: optionMarket.optionMint,

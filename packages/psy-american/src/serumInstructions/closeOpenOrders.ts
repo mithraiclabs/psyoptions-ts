@@ -43,7 +43,9 @@ export const closeOpenOrdersInstruction = async (
   );
   return marketProxy.instruction.closeOpenOrders(
     openOrdersKey,
+    // @ts-ignore
     program.provider.wallet.publicKey,
+    // @ts-ignore
     solWallet ?? program.provider.wallet.publicKey
   );
 };

@@ -56,6 +56,7 @@ export const mintOptionsTx = async (
   }
   const tx = await program.rpc.mintOption(size, {
     accounts: {
+      // @ts-ignore
       userAuthority: program.provider.wallet.publicKey,
       underlyingAssetMint: optionMarket.underlyingAssetMint,
       underlyingAssetPool: optionMarket.underlyingAssetPool,
@@ -121,6 +122,7 @@ export const mintOptionInstruction = async (
   const signers: Signer[] = [];
   const ix = program.instruction.mintOption(size, {
     accounts: {
+      // @ts-ignore
       userAuthority: program.provider.wallet.publicKey,
       underlyingAssetMint: optionMarket.underlyingAssetMint,
       underlyingAssetPool: optionMarket.underlyingAssetPool,
@@ -164,6 +166,7 @@ export const mintOptionV2Instruction = async (
   const signers: Signer[] = [];
   const ix = program.instruction.mintOptionV2(size, {
     accounts: {
+      // @ts-ignore
       userAuthority: program.provider.wallet.publicKey,
       underlyingAssetMint: optionMarket?.underlyingAssetMint,
       underlyingAssetPool: optionMarket.underlyingAssetPool,

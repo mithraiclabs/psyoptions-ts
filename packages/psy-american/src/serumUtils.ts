@@ -27,6 +27,7 @@ export const findOpenOrdersAccountsForOwner = async (
         textEncoder.encode("open-orders"),
         dexProgramId.toBuffer(),
         serumMarketAddress.toBuffer(),
+        // @ts-ignore: TODO: Fix when Anchor accepts PR
         program.provider.wallet.publicKey.toBuffer(),
       ],
       program.programId
@@ -125,6 +126,7 @@ export const findOpenOrdersForOptionMarkets = async (
             textEncoder.encode("open-orders"),
             serumProgramId.toBuffer(),
             serumMarketKey.toBuffer(),
+            // @ts-ignore
             program.provider.wallet.publicKey.toBuffer(),
           ],
           program.programId

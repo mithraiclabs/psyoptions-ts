@@ -41,6 +41,7 @@ export const getOrAddAssociatedTokenAccountTx = async (
     mintKey,
     associatedAddress,
     owner,
+    // @ts-ignore
     provider.wallet.publicKey
   );
 };
