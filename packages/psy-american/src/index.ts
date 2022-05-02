@@ -1,5 +1,4 @@
-import * as anchor from "@project-serum/anchor";
-import idl from "./idl.json";
+import {IDL, PsyAmerican as PsyAmericanType } from "./psyAmericanTypes";
 import * as instructions from "./instructions";
 /**
  * The instructions for interacting with the permissioned Serum market. The Serum
@@ -22,5 +21,6 @@ export * from "./utils";
  * const program = new Program(PsyAmericanIdl, psyAmericanProgramId, provider);
  * ````
  */
-export const PsyAmericanIdl = idl as anchor.Idl;
+export const PsyAmericanIdl = IDL;
+export type PsyAmerican = PsyAmericanType;
 export { instructions, serumInstructions };

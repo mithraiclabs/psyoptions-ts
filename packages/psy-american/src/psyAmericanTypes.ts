@@ -1,5 +1,5 @@
 export type PsyAmerican = {
-  "version": "0.0.0",
+  "version": "0.2.6",
   "name": "psy_american",
   "instructions": [
     {
@@ -100,7 +100,7 @@ export type PsyAmerican = {
       "accounts": [
         {
           "name": "userAuthority",
-          "isMut": true,
+          "isMut": false,
           "isSigner": true
         },
         {
@@ -186,7 +186,7 @@ export type PsyAmerican = {
       "accounts": [
         {
           "name": "userAuthority",
-          "isMut": true,
+          "isMut": false,
           "isSigner": true
         },
         {
@@ -247,7 +247,7 @@ export type PsyAmerican = {
       "accounts": [
         {
           "name": "userAuthority",
-          "isMut": true,
+          "isMut": false,
           "isSigner": true
         },
         {
@@ -323,12 +323,12 @@ export type PsyAmerican = {
       "accounts": [
         {
           "name": "userAuthority",
-          "isMut": true,
+          "isMut": false,
           "isSigner": true
         },
         {
           "name": "optionAuthority",
-          "isMut": true,
+          "isMut": false,
           "isSigner": true
         },
         {
@@ -709,142 +709,142 @@ export type PsyAmerican = {
   ],
   "errors": [
     {
-      "code": 300,
+      "code": 6000,
       "name": "ExpirationIsInThePast",
       "msg": "Expiration must be in the future"
     },
     {
-      "code": 301,
+      "code": 6001,
       "name": "QuoteAndUnderlyingAssetMustDiffer",
       "msg": "Same quote and underlying asset, cannot create market"
     },
     {
-      "code": 302,
+      "code": 6002,
       "name": "QuoteOrUnderlyingAmountCannotBe0",
       "msg": "Quote amount and underlying amount per contract must be > 0"
     },
     {
-      "code": 303,
+      "code": 6003,
       "name": "OptionMarketMustBeMintAuthority",
       "msg": "OptionMarket must be the mint authority"
     },
     {
-      "code": 304,
+      "code": 6004,
       "name": "OptionMarketMustOwnUnderlyingAssetPool",
       "msg": "OptionMarket must own the underlying asset pool"
     },
     {
-      "code": 305,
+      "code": 6005,
       "name": "OptionMarketMustOwnQuoteAssetPool",
       "msg": "OptionMarket must own the quote asset pool"
     },
     {
-      "code": 306,
+      "code": 6006,
       "name": "ExpectedSPLTokenProgramId",
       "msg": "Stop trying to spoof the SPL Token program! Shame on you"
     },
     {
-      "code": 307,
+      "code": 6007,
       "name": "MintFeeMustBeOwnedByFeeOwner",
       "msg": "Mint fee account must be owned by the FEE_OWNER"
     },
     {
-      "code": 308,
+      "code": 6008,
       "name": "ExerciseFeeMustBeOwnedByFeeOwner",
       "msg": "Exercise fee account must be owned by the FEE_OWNER"
     },
     {
-      "code": 309,
+      "code": 6009,
       "name": "MintFeeTokenMustMatchUnderlyingAsset",
       "msg": "Mint fee token must be the same as the underlying asset"
     },
     {
-      "code": 310,
+      "code": 6010,
       "name": "ExerciseFeeTokenMustMatchQuoteAsset",
       "msg": "Exercise fee token must be the same as the quote asset"
     },
     {
-      "code": 311,
+      "code": 6011,
       "name": "OptionMarketExpiredCantMint",
       "msg": "OptionMarket is expired, can't mint"
     },
     {
-      "code": 312,
+      "code": 6012,
       "name": "UnderlyingPoolAccountDoesNotMatchMarket",
       "msg": "Underlying pool account does not match the value on the OptionMarket"
     },
     {
-      "code": 313,
+      "code": 6013,
       "name": "OptionTokenMintDoesNotMatchMarket",
       "msg": "OptionToken mint does not match the value on the OptionMarket"
     },
     {
-      "code": 314,
+      "code": 6014,
       "name": "WriterTokenMintDoesNotMatchMarket",
       "msg": "WriterToken mint does not match the value on the OptionMarket"
     },
     {
-      "code": 315,
+      "code": 6015,
       "name": "MintFeeKeyDoesNotMatchOptionMarket",
       "msg": "MintFee key does not match the value on the OptionMarket"
     },
     {
-      "code": 316,
+      "code": 6016,
       "name": "SizeCantBeLessThanEqZero",
       "msg": "The size argument must be > 0"
     },
     {
-      "code": 317,
+      "code": 6017,
       "name": "ExerciseFeeKeyDoesNotMatchOptionMarket",
       "msg": "exerciseFee key does not match the value on the OptionMarket"
     },
     {
-      "code": 318,
+      "code": 6018,
       "name": "QuotePoolAccountDoesNotMatchMarket",
       "msg": "Quote pool account does not match the value on the OptionMarket"
     },
     {
-      "code": 319,
+      "code": 6019,
       "name": "UnderlyingDestMintDoesNotMatchUnderlyingAsset",
       "msg": "Underlying destination mint must match underlying asset mint address"
     },
     {
-      "code": 320,
+      "code": 6020,
       "name": "FeeOwnerDoesNotMatchProgram",
       "msg": "Fee owner does not match the program's fee owner"
     },
     {
-      "code": 321,
+      "code": 6021,
       "name": "OptionMarketExpiredCantExercise",
       "msg": "OptionMarket is expired, can't exercise"
     },
     {
-      "code": 322,
+      "code": 6022,
       "name": "OptionMarketNotExpiredCantClose",
       "msg": "OptionMarket has not expired, can't close"
     },
     {
-      "code": 323,
+      "code": 6023,
       "name": "NotEnoughQuoteAssetsInPool",
       "msg": "Not enough assets in the quote asset pool"
     },
     {
-      "code": 324,
+      "code": 6024,
       "name": "InvalidAuth",
       "msg": "Invalid auth token provided"
     },
     {
-      "code": 325,
+      "code": 6025,
       "name": "CoinMintIsNotOptionMint",
       "msg": "Coin mint must match option mint"
     },
     {
-      "code": 326,
+      "code": 6026,
       "name": "CannotPruneActiveMarket",
       "msg": "Cannot prune the market while it's still active"
     },
     {
-      "code": 327,
+      "code": 6027,
       "name": "NumberOverflow",
       "msg": "Numberical overflow"
     }
@@ -852,7 +852,7 @@ export type PsyAmerican = {
 };
 
 export const IDL: PsyAmerican = {
-  "version": "0.0.0",
+  "version": "0.2.6",
   "name": "psy_american",
   "instructions": [
     {
@@ -953,7 +953,7 @@ export const IDL: PsyAmerican = {
       "accounts": [
         {
           "name": "userAuthority",
-          "isMut": true,
+          "isMut": false,
           "isSigner": true
         },
         {
@@ -1039,7 +1039,7 @@ export const IDL: PsyAmerican = {
       "accounts": [
         {
           "name": "userAuthority",
-          "isMut": true,
+          "isMut": false,
           "isSigner": true
         },
         {
@@ -1100,7 +1100,7 @@ export const IDL: PsyAmerican = {
       "accounts": [
         {
           "name": "userAuthority",
-          "isMut": true,
+          "isMut": false,
           "isSigner": true
         },
         {
@@ -1176,12 +1176,12 @@ export const IDL: PsyAmerican = {
       "accounts": [
         {
           "name": "userAuthority",
-          "isMut": true,
+          "isMut": false,
           "isSigner": true
         },
         {
           "name": "optionAuthority",
-          "isMut": true,
+          "isMut": false,
           "isSigner": true
         },
         {
@@ -1562,142 +1562,142 @@ export const IDL: PsyAmerican = {
   ],
   "errors": [
     {
-      "code": 300,
+      "code": 6000,
       "name": "ExpirationIsInThePast",
       "msg": "Expiration must be in the future"
     },
     {
-      "code": 301,
+      "code": 6001,
       "name": "QuoteAndUnderlyingAssetMustDiffer",
       "msg": "Same quote and underlying asset, cannot create market"
     },
     {
-      "code": 302,
+      "code": 6002,
       "name": "QuoteOrUnderlyingAmountCannotBe0",
       "msg": "Quote amount and underlying amount per contract must be > 0"
     },
     {
-      "code": 303,
+      "code": 6003,
       "name": "OptionMarketMustBeMintAuthority",
       "msg": "OptionMarket must be the mint authority"
     },
     {
-      "code": 304,
+      "code": 6004,
       "name": "OptionMarketMustOwnUnderlyingAssetPool",
       "msg": "OptionMarket must own the underlying asset pool"
     },
     {
-      "code": 305,
+      "code": 6005,
       "name": "OptionMarketMustOwnQuoteAssetPool",
       "msg": "OptionMarket must own the quote asset pool"
     },
     {
-      "code": 306,
+      "code": 6006,
       "name": "ExpectedSPLTokenProgramId",
       "msg": "Stop trying to spoof the SPL Token program! Shame on you"
     },
     {
-      "code": 307,
+      "code": 6007,
       "name": "MintFeeMustBeOwnedByFeeOwner",
       "msg": "Mint fee account must be owned by the FEE_OWNER"
     },
     {
-      "code": 308,
+      "code": 6008,
       "name": "ExerciseFeeMustBeOwnedByFeeOwner",
       "msg": "Exercise fee account must be owned by the FEE_OWNER"
     },
     {
-      "code": 309,
+      "code": 6009,
       "name": "MintFeeTokenMustMatchUnderlyingAsset",
       "msg": "Mint fee token must be the same as the underlying asset"
     },
     {
-      "code": 310,
+      "code": 6010,
       "name": "ExerciseFeeTokenMustMatchQuoteAsset",
       "msg": "Exercise fee token must be the same as the quote asset"
     },
     {
-      "code": 311,
+      "code": 6011,
       "name": "OptionMarketExpiredCantMint",
       "msg": "OptionMarket is expired, can't mint"
     },
     {
-      "code": 312,
+      "code": 6012,
       "name": "UnderlyingPoolAccountDoesNotMatchMarket",
       "msg": "Underlying pool account does not match the value on the OptionMarket"
     },
     {
-      "code": 313,
+      "code": 6013,
       "name": "OptionTokenMintDoesNotMatchMarket",
       "msg": "OptionToken mint does not match the value on the OptionMarket"
     },
     {
-      "code": 314,
+      "code": 6014,
       "name": "WriterTokenMintDoesNotMatchMarket",
       "msg": "WriterToken mint does not match the value on the OptionMarket"
     },
     {
-      "code": 315,
+      "code": 6015,
       "name": "MintFeeKeyDoesNotMatchOptionMarket",
       "msg": "MintFee key does not match the value on the OptionMarket"
     },
     {
-      "code": 316,
+      "code": 6016,
       "name": "SizeCantBeLessThanEqZero",
       "msg": "The size argument must be > 0"
     },
     {
-      "code": 317,
+      "code": 6017,
       "name": "ExerciseFeeKeyDoesNotMatchOptionMarket",
       "msg": "exerciseFee key does not match the value on the OptionMarket"
     },
     {
-      "code": 318,
+      "code": 6018,
       "name": "QuotePoolAccountDoesNotMatchMarket",
       "msg": "Quote pool account does not match the value on the OptionMarket"
     },
     {
-      "code": 319,
+      "code": 6019,
       "name": "UnderlyingDestMintDoesNotMatchUnderlyingAsset",
       "msg": "Underlying destination mint must match underlying asset mint address"
     },
     {
-      "code": 320,
+      "code": 6020,
       "name": "FeeOwnerDoesNotMatchProgram",
       "msg": "Fee owner does not match the program's fee owner"
     },
     {
-      "code": 321,
+      "code": 6021,
       "name": "OptionMarketExpiredCantExercise",
       "msg": "OptionMarket is expired, can't exercise"
     },
     {
-      "code": 322,
+      "code": 6022,
       "name": "OptionMarketNotExpiredCantClose",
       "msg": "OptionMarket has not expired, can't close"
     },
     {
-      "code": 323,
+      "code": 6023,
       "name": "NotEnoughQuoteAssetsInPool",
       "msg": "Not enough assets in the quote asset pool"
     },
     {
-      "code": 324,
+      "code": 6024,
       "name": "InvalidAuth",
       "msg": "Invalid auth token provided"
     },
     {
-      "code": 325,
+      "code": 6025,
       "name": "CoinMintIsNotOptionMint",
       "msg": "Coin mint must match option mint"
     },
     {
-      "code": 326,
+      "code": 6026,
       "name": "CannotPruneActiveMarket",
       "msg": "Cannot prune the market while it's still active"
     },
     {
-      "code": 327,
+      "code": 6027,
       "name": "NumberOverflow",
       "msg": "Numberical overflow"
     }

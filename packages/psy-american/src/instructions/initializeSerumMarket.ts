@@ -77,6 +77,7 @@ export const initializeSerumMarket = async (
     const eventQueueKeys = new Keypair();
     eventQueue = eventQueueKeys.publicKey;
     const ix = SystemProgram.createAccount({
+      // @ts-ignore
       fromPubkey: program.provider.wallet.publicKey,
       newAccountPubkey: eventQueue,
       lamports:
@@ -94,6 +95,7 @@ export const initializeSerumMarket = async (
     const bidsKeys = new Keypair();
     bids = bidsKeys.publicKey;
     const ix = SystemProgram.createAccount({
+      // @ts-ignore
       fromPubkey: program.provider.wallet.publicKey,
       newAccountPubkey: bids,
       lamports:
@@ -111,6 +113,7 @@ export const initializeSerumMarket = async (
     const asksKeys = new Keypair();
     asks = asksKeys.publicKey;
     const ix = SystemProgram.createAccount({
+      // @ts-ignore
       fromPubkey: program.provider.wallet.publicKey,
       newAccountPubkey: asks,
       lamports:
@@ -135,6 +138,7 @@ export const initializeSerumMarket = async (
     pcDustThreshold,
     {
       accounts: {
+        // @ts-ignore
         userAuthority: program.provider.wallet.publicKey,
         optionMarket: optionMarketKey,
         serumMarket: serumMarketKey,

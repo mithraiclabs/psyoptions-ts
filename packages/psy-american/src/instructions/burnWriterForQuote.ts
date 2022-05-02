@@ -24,6 +24,7 @@ export const burnWriterForQuote = (
 ): TransactionInstruction => {
   return program.instruction.burnWriterForQuote(size, {
     accounts: {
+      // @ts-ignore
       userAuthority: program.provider.wallet.publicKey,
       optionMarket: optionMarket.key,
       writerTokenMint: optionMarket.writerTokenMint,

@@ -44,6 +44,7 @@ export const cancelOrderInstructionV2 = async (
     serumMarketKey
   );
   return marketProxy.instruction.cancelOrder(
+    // @ts-ignore
     program.provider.wallet.publicKey,
     order
   );
@@ -85,6 +86,7 @@ export const cancelOrderByClientId = async (
     serumMarketKey
   );
   return marketProxy.instruction.cancelOrderByClientId(
+    // @ts-ignore
     program.provider.wallet.publicKey,
     order.openOrdersAddress,
     order.clientId

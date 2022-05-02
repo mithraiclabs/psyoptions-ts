@@ -50,6 +50,7 @@ export const settleFundsInstruction = async (
   )
   return marketProxy.instruction.settleFunds(
     openOrdersKey,
+    // @ts-ignore
     program.provider.wallet.publicKey,
     baseWallet,
     quoteWallet,

@@ -55,6 +55,7 @@ export const newOrderInstruction = async (
         textEncoder.encode("open-orders"),
         dexProgramId.toBuffer(),
         marketProxy.market.address.toBuffer(),
+        // @ts-ignore
         program.provider.wallet.publicKey.toBuffer(),
       ],
       program.programId
@@ -67,6 +68,7 @@ export const newOrderInstruction = async (
     if (!accountInfo) {
       const { ix } = await initOpenOrdersInstruction(
         program,
+        // @ts-ignore
         program.provider.wallet.publicKey,
         optionMarketKey,
         dexProgramId,

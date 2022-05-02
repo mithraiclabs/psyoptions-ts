@@ -1,6 +1,7 @@
-import { Idl, parseIdlErrors, ProgramError } from "@project-serum/anchor";
-import IDL from "../idl.json";
+import { parseIdlErrors, ProgramError } from "@project-serum/anchor";
+import { IDL } from "../psyAmericanTypes";
 
-const idlErrors = parseIdlErrors(IDL as Idl);
+const idlErrors = parseIdlErrors(IDL);
 
-export const parseTransactionError = (error: any) => ProgramError.parse(error, idlErrors);
+export const parseTransactionError = (error: any) =>
+  ProgramError.parse(error, idlErrors);

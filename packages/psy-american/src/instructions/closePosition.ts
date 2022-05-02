@@ -24,6 +24,7 @@ export const closePositionInstruction = (
 ): TransactionInstruction => {
   return program.instruction.closeOptionPosition(size, {
     accounts: {
+      // @ts-ignore
       userAuthority: program.provider.wallet.publicKey,
       optionMarket: optionMarket.key,
       writerTokenMint: optionMarket.writerTokenMint,
