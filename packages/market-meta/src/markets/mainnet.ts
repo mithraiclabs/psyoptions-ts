@@ -3528,4 +3528,18 @@ export const MainnetMarkets: OptionMarketMeta[] = [
     serumProgramId: "9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin",
     psyOptionsProgramId: "R2y9ip6mxmWUj4pt54jP2hz2dgvMozy9VTSwMWE7evs",
   }, 
+  {
+        "expiration": 1654588800,
+        "optionMarketAddress": "B6miTdbiaTM577rMoWqo6bncZWhN7sfA1XpZ2b3uQqxG",
+        "optionContractMintAddress": "7Watg7BdH2oy6xdiGVq9J5bk1ZvT7aiBtnyQSMdjKjMV",
+        "optionWriterTokenMintAddress": "HAiSNyqkfLyviyZf4L4HqDSYiM8g1zd87gAh2oTRdJaC",
+        "quoteAssetMint": "CzXF8oUJSsB9ADKV99WAi2TgytqAyKvQw6EihwiL9em4",
+        "quoteAssetPoolAddress": "2v9kA4cxGoc93bEnS9jSW8pWUKNuNV52K5bGyZ7zwM1C",
+        "underlyingAssetMint": "So11111111111111111111111111111111111111112",
+        "underlyingAssetPoolAddress": "5V7KSY5M4nUpnV9b8LHpJH61V7kx9Thi4rCo21kMdUbM",
+        "underlyingAssetPerContract": "18000000000",
+        "quoteAssetPerContract": "10000",
+        "serumProgramId": "9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin",
+        "psyOptionsProgramId": "R2y9ip6mxmWUj4pt54jP2hz2dgvMozy9VTSwMWE7evs"
+    }
 ];
