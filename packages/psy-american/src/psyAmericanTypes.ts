@@ -100,7 +100,7 @@ export type PsyAmerican = {
       "accounts": [
         {
           "name": "userAuthority",
-          "isMut": false,
+          "isMut": true,
           "isSigner": true
         },
         {
@@ -953,7 +953,7 @@ export const IDL: PsyAmerican = {
       "accounts": [
         {
           "name": "userAuthority",
-          "isMut": false,
+          "isMut": true,
           "isSigner": true
         },
         {

@@ -85,4 +85,10 @@ export class Validation implements Middleware {
       ...ix.keys,
     ];
   }
+  consumeEvents(ix: TransactionInstruction) {
+    ix.data = Buffer.concat([Buffer.from([7]), ix.data]);
+  }
+  consumeEventsPermissioned(ix: TransactionInstruction) {
+    ix.data = Buffer.concat([Buffer.from([8]), ix.data]);
+  }
 }

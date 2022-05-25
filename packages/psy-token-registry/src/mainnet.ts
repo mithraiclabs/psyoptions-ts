@@ -154,4 +154,20 @@ export const mainnet: ClusterEnv = {
       website: "https://projectserum.com/",
     },
   },
+  SLNDpmoWTVADgEdndyvWzroNL7zSi1dF9PC3xHGtPwp: {
+    chainId: 101,
+    address: "SLNDpmoWTVADgEdndyvWzroNL7zSi1dF9PC3xHGtPwp",
+    symbol: "SLND",
+    name: "Solend",
+    decimals: 6,
+    logoURI:
+      "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/SLNDpmoWTVADgEdndyvWzroNL7zSi1dF9PC3xHGtPwp/logo.png",
+    tags: ["solend", "lending"],
+    extensions: {
+      coingeckoId: "solend",
+      serumV3Usdc: "F9y9NM83kBMzBmMvNT18mkcFuNAPhNRhx7pnz9EDWwfv",
+      twitter: "https://twitter.com/solendprotocol",
+      website: "https://solend.fi",
+    },
+  },
 };
