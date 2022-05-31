@@ -170,4 +170,19 @@ export const mainnet: ClusterEnv = {
       website: "https://solend.fi",
     },
   },
+  CzXF8oUJSsB9ADKV99WAi2TgytqAyKvQw6EihwiL9em4: {
+    chainId: 101,
+    address: "CzXF8oUJSsB9ADKV99WAi2TgytqAyKvQw6EihwiL9em4",
+    symbol: "DRGNZ",
+    name: "Boryoku Genesis Dragonz Index",
+    decimals: 2,
+    logoURI: "https://i.imgur.com/AzJI7FQ.png",
+    tags: ["bridgesplit-fraction", "boryoku-genesis", "fraction-index", "fnft"],
+    extensions: {
+      discord: "https://discord.gg/bridgesplit",
+      twitter: "https://twitter.com/bridgesplit",
+      vault:
+        "https://app.bridgesplit.com/fractions/CzXF8oUJSsB9ADKV99WAi2TgytqAyKvQw6EihwiL9em4",
+    },
+  },
 };
