@@ -1,6 +1,6 @@
 {
   "name": "@mithraic-labs/psy-token-registry",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Meta data for the SPL Tokens with PsyOption options",
   "main": "dist/index.js",
   "module": "dist/index.es.js",

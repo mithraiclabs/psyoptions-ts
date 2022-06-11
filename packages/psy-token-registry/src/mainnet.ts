@@ -1,6 +1,22 @@
 import { ClusterEnv } from "./types";
 
 export const mainnet: ClusterEnv = {
+  PsyFiqqjiv41G7o5SMRzDJCu4psptThNR2GtfeGHfSq: {
+    chainId: 101,
+    address: "PsyFiqqjiv41G7o5SMRzDJCu4psptThNR2GtfeGHfSq",
+    symbol: "PSY",
+    name: "PsyOptions",
+    decimals: 6,
+    logoURI:
+      "https://uploads-ssl.webflow.com/6158e3591ba06d14de4fd0df/61f900784e63439a5a052fed_PsyOptions.svg",
+    tags: ["options", "defi"],
+    extensions: {
+      // TODO add these
+      // serumV3Usdc: "",
+      // serumV3Usdt: "",
+      coingeckoId: "psyoptions",
+    },
+  },
   "9n4nbM75f5Ui33ZbPYXn59EwSgE8CGsHtAeTH5YFeJ9E": {
     chainId: 101,
     address: "9n4nbM75f5Ui33ZbPYXn59EwSgE8CGsHtAeTH5YFeJ9E",
@@ -9,7 +25,7 @@ export const mainnet: ClusterEnv = {
     decimals: 6,
     logoURI:
       "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/9n4nbM75f5Ui33ZbPYXn59EwSgE8CGsHtAeTH5YFeJ9E/logo.png",
-    tags: ["wrapped-sollet", "ethereum"],
+    tags: ["wrapped-sollet", "bitcoin"],
     extensions: {
       bridgeContract:
         "https://etherscan.io/address/0xeae57ce9cc1984f202e15e038b964bb8bdf7229a",
