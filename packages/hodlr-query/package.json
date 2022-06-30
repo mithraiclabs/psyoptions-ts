@@ -1,0 +1,44 @@
+{
+  "name": "@mithraic-labs/hodlr-query",
+  "version": "0.0.1",
+  "description": "Query hodlrs of tokens",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "build:package": "yarn clean && rollup -c",
+    "clean": "rimraf ./dist",
+    "prepublishOnly": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "type-check": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mithraiclabs/psyoptions-ts.git"
+  },
+  "keywords": [
+    "psyoptions"
+  ],
+  "author": "Mithraic Labs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mithraiclabs/psyoptions-ts/issues"
+  },
+  "homepage": "https://github.com/mithraiclabs/psyoptions-ts#readme",
+  "dependencies": {
+    "@solana/web3.js": "^1.46.0",
+    "axios": "^0.27.2"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "rollup": "^2.53.1",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {}
+}
