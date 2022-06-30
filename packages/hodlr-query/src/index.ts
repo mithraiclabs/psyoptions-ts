@@ -41,18 +41,20 @@ const throttledGetTokenOwners: (...args: any[]) => Promise<SolscanTokenHolderRes
 const connection = new Connection("https://api.mainnet-beta.solana.com");
 (async () => {
 
+    // TODO: Fix potential big number errors
+
+    const MIN_TOKEN_AMOUNT = 1_000;
+    const MAX_TOKEN_AMOUNT = undefined;
+    const token = "PsyFiqqjiv41G7o5SMRzDJCu4psptThNR2GtfeGHfSq"; // change this for a different token ID
+
     const ownerMap: Record<string, SolscanTokenHolder> = {};
     let offset = 0;
     // Solscan has a max limit size of 100
     const STEP = 100;
-    // change this number to change the limit of owners you want to get. Undefined pulls all holders before filtering
-    const LIMIT = undefined;
-    const token = "PsyFiqqjiv41G7o5SMRzDJCu4psptThNR2GtfeGHfSq"; // change this for a different token ID
     const response = await throttledGetTokenOwners(0, 1, token);
     const MAX_HOLDERS = response.total;
-    const limit = typeof LIMIT === "number" && LIMIT < MAX_HOLDERS ? LIMIT : MAX_HOLDERS;
 
-    while (offset <= limit) {
+    while (offset <= MAX_HOLDERS) {
         const response = await throttledGetTokenOwners(offset, STEP, token);
         const holders = response.data;
         for (let x = 0; x < holders.length; x++) {
@@ -62,22 +64,33 @@ const connection = new Connection("https://api.mainnet-beta.solana.com");
         }
         offset += STEP;
     }
-    console.log(`Total owners from Solscan: ${Object.keys(ownerMap).length}`);
+    let ownerKeys = Object.keys(ownerMap);
+    console.log(`Total owners from Solscan: ${ownerKeys.length}`);
 
-    // TODO: Filter for by an amount range
+    // Filter for by an amount range
+    ownerKeys.forEach(owner => {
+        const holderInfo = ownerMap[owner];
+        const humanAmount = holderInfo.amount / Math.pow(10, holderInfo.decimals);
+        if (MIN_TOKEN_AMOUNT && humanAmount < MIN_TOKEN_AMOUNT) {
+            delete ownerMap[owner];
+        } else if (MAX_TOKEN_AMOUNT && humanAmount > MAX_TOKEN_AMOUNT) {
+            delete ownerMap[owner];
+        }
+    })
+    
 
     // Filter by owner's root account owner (ensuring only the SystemProgram owns 
     //  the account to remove Atrix pools or other non-human pools)
-    const ownerKeys: PublicKey[] = Object.keys(ownerMap).map(x => new PublicKey(x));
+    const ownerPubkeys: PublicKey[] = Object.keys(ownerMap).map(x => new PublicKey(x));
 
     const ownersToRemove: string[] = [];
-    await Promise.all(chunkArray(ownerKeys, 100).map(async group => {
+    await Promise.all(chunkArray(ownerPubkeys, 100).map(async group => {
         const accountInfos = await connection.getMultipleAccountsInfo(group, "confirmed");
         accountInfos.forEach((info, index) => {
             if (!info) {
                 // NOTE: Looks like this can occur if the account was not rent exempt and there is 
                 //  not SOL for rent.
-
+                ownersToRemove.push(group[index].toString())
                 // console.log(`No info found for ${group[index].toString()}`)
             } else if (info.owner.toString() != SystemProgram.programId.toString()) {
                 ownersToRemove.push(group[index].toString())
