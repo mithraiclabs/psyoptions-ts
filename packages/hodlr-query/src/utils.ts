@@ -19,6 +19,29 @@ export const chunkArray = <T>(myArray: T[], chunkSize: number): T[][] => {
   return tempArray;
 };
 
+export function throttleAsync(fn: Function, wait: number) {
+  let lastRun = 0;
+
+  async function throttled(...args) {
+      const currentWait = lastRun + wait - Date.now();
+      const shouldRun = currentWait <= 0;
+
+      if (shouldRun) {
+          lastRun = Date.now();
+          return await fn(...args);
+      } else {
+          return await new Promise(function (resolve) {
+              setTimeout(function () {
+                  resolve(throttled(...args));
+              }, currentWait);
+          });
+      }
+  }
+
+  return throttled;
+}
+
+
 export const getNonSystemOwnedAccounts = async (
   connection: Connection,
   ownerPubkeys: PublicKey[]
