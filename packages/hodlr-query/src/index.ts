@@ -2,7 +2,7 @@ import { Connection, PublicKey, SystemProgram } from "@solana/web3.js";
 import { default as axios } from "axios";
 import * as fs from "fs";
 import { SolscanTokenHolder, SolscanTokenHolderRes } from "./types";
-import { chunkArray } from "./utils";
+import { getNonSystemOwnedAccounts } from "./utils";
 
 export function throttleAsync(fn: Function, wait: number) {
     let lastRun = 0;
@@ -82,22 +82,7 @@ const connection = new Connection("https://api.mainnet-beta.solana.com");
     // Filter by owner's root account owner (ensuring only the SystemProgram owns 
     //  the account to remove Atrix pools or other non-human pools)
     const ownerPubkeys: PublicKey[] = Object.keys(ownerMap).map(x => new PublicKey(x));
-
-    const ownersToRemove: string[] = [];
-    await Promise.all(chunkArray(ownerPubkeys, 100).map(async group => {
-        const accountInfos = await connection.getMultipleAccountsInfo(group, "confirmed");
-        accountInfos.forEach((info, index) => {
-            if (!info) {
-                // NOTE: Looks like this can occur if the account was not rent exempt and there is 
-                //  not SOL for rent.
-                ownersToRemove.push(group[index].toString())
-                // console.log(`No info found for ${group[index].toString()}`)
-            } else if (info.owner.toString() != SystemProgram.programId.toString()) {
-                ownersToRemove.push(group[index].toString())
-            }
-        })
-    }))
-
+    const ownersToRemove = await getNonSystemOwnedAccounts(connection, ownerPubkeys);
     ownersToRemove.forEach(x => {
         delete ownerMap[x];   
     });
@@ -110,7 +95,4 @@ const connection = new Connection("https://api.mainnet-beta.solana.com");
         fs.mkdirSync(OUTPUT_DIR);
     }
     fs.writeFileSync(`${OUTPUT_DIR}/${token}_hodlrs.json`, JSON.stringify(ownerMap), {encoding: "utf-8"});
-
-
-
 })();
