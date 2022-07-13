@@ -1,0 +1,1078 @@
+{
+    "version": "0.0.0",
+    "name": "farm",
+    "instructions": [
+      {
+        "name": "createFarm",
+        "accounts": [
+          {
+            "name": "base",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "farmAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "stakeMint",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "farmStakeTokenAccount",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "payer",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "tokenProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "systemProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "rent",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "farmBump",
+            "type": "u8"
+          }
+        ]
+      },
+      {
+        "name": "createCrop",
+        "accounts": [
+          {
+            "name": "farmAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "cropAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "rewardMint",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "cropRewardTokenAccount",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "payer",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "systemProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "clock",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "rent",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "cropBump",
+            "type": "u8"
+          }
+        ]
+      },
+      {
+        "name": "updateFarmAuthority",
+        "accounts": [
+          {
+            "name": "farmAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": true
+          }
+        ],
+        "args": [
+          {
+            "name": "newAuthority",
+            "type": "publicKey"
+          }
+        ]
+      },
+      {
+        "name": "depositCropRewards",
+        "accounts": [
+          {
+            "name": "cropAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "cropRewardTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "ownerRewardTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "tokenProgram",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "depositRewardAmount",
+            "type": "u64"
+          }
+        ]
+      },
+      {
+        "name": "withdrawCropRewards",
+        "accounts": [
+          {
+            "name": "cropAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "cropRewardTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "ownerRewardTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "tokenProgram",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "withdrawRewardAmount",
+            "type": "u64"
+          }
+        ]
+      },
+      {
+        "name": "setCropRewardRate",
+        "accounts": [
+          {
+            "name": "cropAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "farmAccount",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "farmStakeTokenAccount",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "clock",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "newRewardRate",
+            "type": "u64"
+          }
+        ]
+      },
+      {
+        "name": "setCropRewardsLocked",
+        "accounts": [
+          {
+            "name": "cropAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": true
+          }
+        ],
+        "args": [
+          {
+            "name": "locked",
+            "type": "bool"
+          }
+        ]
+      },
+      {
+        "name": "createStaker",
+        "accounts": [
+          {
+            "name": "farmAccount",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "stakerAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "payer",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "systemProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "rent",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "stakeBump",
+            "type": "u8"
+          }
+        ]
+      },
+      {
+        "name": "createHarvester",
+        "accounts": [
+          {
+            "name": "cropAccount",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "harvesterAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "payer",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "systemProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "rent",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "harvesterBump",
+            "type": "u8"
+          }
+        ]
+      },
+      {
+        "name": "stake",
+        "accounts": [
+          {
+            "name": "farmAccount",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "stakerAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "farmStakeTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "userCropAccounts",
+            "accounts": [
+              {
+                "name": "cropAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "cropRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "harvesterAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "userRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              }
+            ]
+          },
+          {
+            "name": "userStakeTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "tokenProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "clock",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      },
+      {
+        "name": "stakeDualCrop",
+        "accounts": [
+          {
+            "name": "farmAccount",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "farmStakeTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "stakerAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "userCrop1Accounts",
+            "accounts": [
+              {
+                "name": "cropAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "cropRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "harvesterAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "userRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              }
+            ]
+          },
+          {
+            "name": "userCrop2Accounts",
+            "accounts": [
+              {
+                "name": "cropAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "cropRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "harvesterAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "userRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              }
+            ]
+          },
+          {
+            "name": "userStakeTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "tokenProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "clock",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      },
+      {
+        "name": "unstake",
+        "accounts": [
+          {
+            "name": "farmAccount",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "stakerAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "farmStakeTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "userCropAccounts",
+            "accounts": [
+              {
+                "name": "cropAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "cropRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "harvesterAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "userRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              }
+            ]
+          },
+          {
+            "name": "userStakeTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "tokenProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "clock",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      },
+      {
+        "name": "unstakeDualCrop",
+        "accounts": [
+          {
+            "name": "farmAccount",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "farmStakeTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "stakerAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "userCrop1Accounts",
+            "accounts": [
+              {
+                "name": "cropAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "cropRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "harvesterAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "userRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              }
+            ]
+          },
+          {
+            "name": "userCrop2Accounts",
+            "accounts": [
+              {
+                "name": "cropAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "cropRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "harvesterAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "userRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              }
+            ]
+          },
+          {
+            "name": "userStakeTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "tokenProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "clock",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      },
+      {
+        "name": "claim",
+        "accounts": [
+          {
+            "name": "farmAccount",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "stakerAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "farmStakeTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "userCropAccounts",
+            "accounts": [
+              {
+                "name": "cropAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "cropRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "harvesterAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "userRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              }
+            ]
+          },
+          {
+            "name": "userStakeTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "tokenProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "clock",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": []
+      },
+      {
+        "name": "claimDualCrop",
+        "accounts": [
+          {
+            "name": "farmAccount",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "farmStakeTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "stakerAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "userCrop1Accounts",
+            "accounts": [
+              {
+                "name": "cropAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "cropRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "harvesterAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "userRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              }
+            ]
+          },
+          {
+            "name": "userCrop2Accounts",
+            "accounts": [
+              {
+                "name": "cropAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "cropRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "harvesterAccount",
+                "isMut": true,
+                "isSigner": false
+              },
+              {
+                "name": "userRewardTokenAccount",
+                "isMut": true,
+                "isSigner": false
+              }
+            ]
+          },
+          {
+            "name": "userStakeTokenAccount",
+            "isMut": true,
+            "isSigner": false
+          },
+          {
+            "name": "authority",
+            "isMut": false,
+            "isSigner": true
+          },
+          {
+            "name": "tokenProgram",
+            "isMut": false,
+            "isSigner": false
+          },
+          {
+            "name": "clock",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": []
+      }
+    ],
+    "accounts": [
+      {
+        "name": "FarmAccount",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "base",
+              "type": "publicKey"
+            },
+            {
+              "name": "bump",
+              "type": "u8"
+            },
+            {
+              "name": "stakeMint",
+              "type": "publicKey"
+            },
+            {
+              "name": "farmStakeTokenAccount",
+              "type": "publicKey"
+            },
+            {
+              "name": "cropAccounts",
+              "type": {
+                "array": [
+                  {
+                    "option": "publicKey"
+                  },
+                  4
+                ]
+              }
+            },
+            {
+              "name": "authority",
+              "type": "publicKey"
+            }
+          ]
+        }
+      },
+      {
+        "name": "CropAccount",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "bump",
+              "type": "u8"
+            },
+            {
+              "name": "authority",
+              "type": "publicKey"
+            },
+            {
+              "name": "farmAccount",
+              "type": "publicKey"
+            },
+            {
+              "name": "rewardMint",
+              "type": "publicKey"
+            },
+            {
+              "name": "rewardAmountPerDay",
+              "type": "u64"
+            },
+            {
+              "name": "rewardsLocked",
+              "type": "bool"
+            },
+            {
+              "name": "cropRewardTokenAccount",
+              "type": "publicKey"
+            },
+            {
+              "name": "accruedRewardPerStake",
+              "type": "u128"
+            },
+            {
+              "name": "lastRewardTimestamp",
+              "type": "i64"
+            }
+          ]
+        }
+      },
+      {
+        "name": "StakerAccount",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "bump",
+              "type": "u8"
+            },
+            {
+              "name": "farmAccount",
+              "type": "publicKey"
+            },
+            {
+              "name": "authority",
+              "type": "publicKey"
+            },
+            {
+              "name": "stakedAmount",
+              "type": "u64"
+            }
+          ]
+        }
+      },
+      {
+        "name": "HarvesterAccount",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "bump",
+              "type": "u8"
+            },
+            {
+              "name": "cropAccount",
+              "type": "publicKey"
+            },
+            {
+              "name": "rewardDebt",
+              "type": "u128"
+            },
+            {
+              "name": "earnedRewards",
+              "type": "u64"
+            },
+            {
+              "name": "authority",
+              "type": "publicKey"
+            }
+          ]
+        }
+      }
+    ],
+    "errors": [
+      {
+        "code": 300,
+        "name": "ExcessUnstakeAmount",
+        "msg": "FarmErrorCode::ExcessUnstakeAmount - Desired unstake amount exceeds current stake amount"
+      },
+      {
+        "code": 301,
+        "name": "InvalidRewardRateUpdate",
+        "msg": "FarmErrorCode::InvalidRewardRateUpdate - Farm does not have enough balance to match updated reward rate"
+      },
+      {
+        "code": 302,
+        "name": "InvalidUpdateParam",
+        "msg": "FarmErrorCode::InvalidUpdateParam"
+      },
+      {
+        "code": 303,
+        "name": "InvalidPubkey",
+        "msg": "FarmErrorCode::InvalidPubkey"
+      },
+      {
+        "code": 304,
+        "name": "InvalidU64",
+        "msg": "FarmErrorCode::InvalidU64"
+      },
+      {
+        "code": 305,
+        "name": "InvalidBool",
+        "msg": "FarmErrorCode::InvalidBool"
+      },
+      {
+        "code": 306,
+        "name": "InvalidDevRewardPortion",
+        "msg": "FarmErrorCode::InvalidDevRewardPortion"
+      },
+      {
+        "code": 307,
+        "name": "InvalidDevRewardAccountOwner",
+        "msg": "FarmErrorCode::InvalidDevRewardAccountOwner"
+      },
+      {
+        "code": 308,
+        "name": "InvalidDevRewardAccountMint",
+        "msg": "FarmErrorCode::InvalidDevRewardAccountMint"
+      },
+      {
+        "code": 309,
+        "name": "DevRewardAccountNotWriteable",
+        "msg": "FarmErrorCode::DevRewardAccountNotWriteable"
+      },
+      {
+        "code": 310,
+        "name": "InvalidMintedRewardOwnerAccount",
+        "msg": "FarmErrorCode::InvalidMintedRewardOwnerAccount"
+      },
+      {
+        "code": 311,
+        "name": "InvalidMintedRewardOwnerAccountMint",
+        "msg": "FarmErrorCode::InvalidMintedRewardOwnerAccountMint"
+      },
+      {
+        "code": 312,
+        "name": "InvalidMintedRewardOwnerAccountAuthority",
+        "msg": "FarmErrorCode::InvalidMintedRewardOwnerAccountAuthority"
+      },
+      {
+        "code": 313,
+        "name": "ClaimingLockedRewards",
+        "msg": "FarmErrorCode::ClaimingLockedRewards"
+      },
+      {
+        "code": 314,
+        "name": "CropNotPlanted",
+        "msg": "FarmErrorCode::CropNotPlanted"
+      },
+      {
+        "code": 315,
+        "name": "MaxCropsPlanted",
+        "msg": "FarmErrorCode::MaxCropsPlanted"
+      },
+      {
+        "code": 316,
+        "name": "InvalidRewardWithdraw",
+        "msg": "FarmErrorCode::InvalidRewardWithdraw"
+      },
+      {
+        "code": 317,
+        "name": "InvalidCropForFarm",
+        "msg": "Farm does not contain crop"
+      },
+      {
+        "code": 318,
+        "name": "InvalidCrops",
+        "msg": "Invalid crops"
+      }
+    ],
+    "metadata": {
+      "address": "BLDDrex4ZSWBgPYaaH6CQCzkJXWfzCiiur9cSFJT8t3x"
+    }
+  }
