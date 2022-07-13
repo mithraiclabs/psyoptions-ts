@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "ts-node src/splGovernance.ts",
+    "dev": "ts-node src/index.ts",
     "build": "tsc",
     "build:package": "yarn clean && rollup -c",
     "clean": "rimraf ./dist",
