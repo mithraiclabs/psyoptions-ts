@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "ts-node src/index.ts",
+    "dev": "ts-node src/splGovernance.ts",
     "build": "tsc",
     "build:package": "yarn clean && rollup -c",
     "clean": "rimraf ./dist",
@@ -32,6 +32,7 @@
   "dependencies": {
     "@project-serum/anchor": "^0.25.0",
     "@raydium-io/raydium-sdk": "^1.1.0-beta.5",
+    "@solana/spl-governance": "^0.0.34",
     "@solana/web3.js": "^1.46.0",
     "axios": "^0.27.2"
   },
