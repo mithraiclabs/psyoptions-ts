@@ -250,4 +250,21 @@ export const mainnet: ClusterEnv = {
       serumV3Usdc: "Hc4YSWQMii3smLVRacH1JbPVH65ifBtoj4rGjVWKXmAs",
     },
   },
+  "DUSTawucrTsGU8hcqRdHDCbuYhCPADMLM2VcCb8VnFnQ" :{
+    chainId: 101,
+    address: "DUSTawucrTsGU8hcqRdHDCbuYhCPADMLM2VcCb8VnFnQ",
+    symbol: "DUST",
+    name: "DUST Protocol",
+    decimals: 9,
+    logoURI: "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/DUSTawucrTsGU8hcqRdHDCbuYhCPADMLM2VcCb8VnFnQ/logo.jpg",
+    tags: [
+      "NFT",
+      "utility-token"
+    ],
+    extensions: {
+      discord: "https://discord.com/invite/dedao",
+      twitter: "https://twitter.com/degodsnft",
+      website: "https://docs.dustprotocol.com/"
+    }
+  }
 };
