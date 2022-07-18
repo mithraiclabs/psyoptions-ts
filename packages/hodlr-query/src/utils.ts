@@ -69,3 +69,6 @@ export const getNonSystemOwnedAccounts = async (
   );
   return ownersToRemove;
 };
+
+export const wait = (delayMS: number) =>
+  new Promise((resolve) => setTimeout(resolve, delayMS));

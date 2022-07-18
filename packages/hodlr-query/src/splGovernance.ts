@@ -1,21 +1,22 @@
-import { BN, ProgramAccount } from "@project-serum/anchor";
+import { BN } from "@project-serum/anchor";
 import {
   getGovernanceAccounts,
   pubkeyFilter,
   TokenOwnerRecord,
+  ProgramAccount
 } from "@solana/spl-governance";
 import { Connection, PublicKey } from "@solana/web3.js";
 
 /**
- * 
+ *
  * Get Token Owner Records from the SPL Token Program
- * 
+ *
  * Example usage script
  * const PSY_REALM = new PublicKey("FiG6YoqWnVzUmxFNukcRVXZC51HvLr6mts8nxcm7ScR8");
  * const PSY_GOVERNANCE_PROGRAM = new PublicKey(
  *   "GovHgfDPyQ1GwazJTDY2avSVY8GGcpmCapmmCsymRaGe"
  * );
- * 
+ *
  * const connection = new Connection("https://api.mainnet-beta.solana.com");
  * (async () => {
  *   const accounts = getGovernanceStakedTokens(
@@ -25,13 +26,13 @@ import { Connection, PublicKey } from "@solana/web3.js";
  *     new PublicKey("PsyFiqqjiv41G7o5SMRzDJCu4psptThNR2GtfeGHfSq")
  *   );
  * })();
- * 
- * @param connection 
- * @param realm 
- * @param governanceProgramId 
- * @param tokenMint 
- * @param minimumDeposited 
- * @returns 
+ *
+ * @param connection
+ * @param realm
+ * @param governanceProgramId
+ * @param tokenMint
+ * @param minimumDeposited
+ * @returns
  */
 export const getGovernanceStakedTokens = async (
   connection: Connection,
@@ -54,5 +55,14 @@ export const getGovernanceStakedTokens = async (
   );
 };
 
-export const getOwnersFromTokenDepositRecords = (tokenOwnerRecords: ProgramAccount<TokenOwnerRecord>[]): PublicKey[] => 
-  tokenOwnerRecords.map(x => x.account.governingTokenOwner)
+export const getOwnersFromTokenDepositRecords = (
+  tokenOwnerRecords: ProgramAccount<TokenOwnerRecord>[]
+): PublicKey[] => tokenOwnerRecords.map((x) => x.account.governingTokenOwner);
+
+export const getOwnersMapFromTokenDepositRecords = (
+  tokenOwnerRecords: ProgramAccount<TokenOwnerRecord>[]
+): Record<string, boolean> =>
+  tokenOwnerRecords.reduce((acc, curr) => {
+    acc[curr.account.governingTokenOwner.toString()] = true;
+    return acc;
+  }, {});

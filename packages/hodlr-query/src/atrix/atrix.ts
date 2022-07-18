@@ -2,7 +2,7 @@ import { AnchorProvider, BN, Idl, Program } from "@project-serum/anchor";
 import { Connection, PublicKey } from "@solana/web3.js";
 import FarmIdl from "./farmIdl.json";
 
-const ATRIX_FARM_ID = new PublicKey(
+export const ATRIX_FARM_ID = new PublicKey(
   "BLDDrex4ZSWBgPYaaH6CQCzkJXWfzCiiur9cSFJT8t3x"
 );
 
@@ -78,3 +78,12 @@ export const getFarmLps = async (
  export const getOwnersFromStakerAccounts = (
     stakerAccounts: any[]
   ): PublicKey[] => stakerAccounts.map((x) => x.account.authority);
+
+  export const getOwnersMapFromStakers = (stakerAccounts: any[]): Record<string, boolean> => {
+    const res = {};
+    stakerAccounts.reduce((acc, curr) => {
+      acc[curr.account.authority.toString()] = true;
+      return acc;
+    }, res);
+    return res;
+  }

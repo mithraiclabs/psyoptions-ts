@@ -85,6 +85,15 @@ export const getOwnersFromFarmLedgers = (
   decodedFarmLedgers: FarmLedger[]
 ): PublicKey[] => decodedFarmLedgers.map((x) => x.owner);
 
+export const getOwnersMapFromFarmLedgers = (decodedFarmLedgers: FarmLedger[]): Record<string, boolean> => {
+  const res = {};
+  decodedFarmLedgers.reduce((acc, curr) => {
+    acc[curr.owner.toString()] = true;
+    return acc;
+  }, res);
+  return res;
+}
+
 export const getLps = async (
   lpMint: PublicKey,
   minimumLpAmount: number = 0
