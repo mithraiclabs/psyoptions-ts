@@ -19,7 +19,7 @@ const connection = new Connection("https://api.mainnet-beta.solana.com");
 (async () => {
   // TODO: Fix potential big number errors
 
-  const MIN_TOKEN_AMOUNT = 1_000;
+  const MIN_TOKEN_AMOUNT = 100;
   const MAX_TOKEN_AMOUNT = undefined;
   const token = "PsyFiqqjiv41G7o5SMRzDJCu4psptThNR2GtfeGHfSq"; // change this for a different token ID
   const rayLpTokenMint = "Hrip9d8f6iQ4JxfB85JyGGq3u2WgpmqRSXJZursm26hd"; // Change for different token
