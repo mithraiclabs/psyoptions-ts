@@ -240,7 +240,7 @@ export const mainnet: ClusterEnv = {
     address: "9tzZzEHsKnwFL1A3DyFJwj36KnZj3gZ7g4srWp9YTEoh",
     symbol: "ARB",
     name: "ARB Protocol",
-    decimals: 2,
+    decimals: 6,
     logoURI: "https://raw.githubusercontent.com/ARBProtocol/arbprotocol/main/IMG_3600.png",
     tags: [],
     extensions: {
