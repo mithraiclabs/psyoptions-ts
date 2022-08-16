@@ -1,5 +1,5 @@
 import { AnchorProvider, web3 } from "@project-serum/anchor";
-import { american, tokenizedEuros } from "../src";
+import { american, tokenizedEuros, getAllTvlTokenMap } from "../src";
 
 (async () => {
   const connection = new web3.Connection("https://api.mainnet-beta.solana.com");
@@ -10,9 +10,6 @@ import { american, tokenizedEuros } from "../src";
     AnchorProvider.defaultOptions()
   );
 
-  const mintAmountMap = await american.getLockedTokensMap(provider);
-  console.log("American mint map: ", JSON.stringify(mintAmountMap));
-
-  const tokenizedEuroMintMap = await tokenizedEuros.getLockedTokensMap(provider);
-  console.log("Euros mint map: ", JSON.stringify(tokenizedEuroMintMap));
+  const mintAmountMap = await getAllTvlTokenMap(provider);
+  console.log(JSON.stringify(mintAmountMap));
 })();

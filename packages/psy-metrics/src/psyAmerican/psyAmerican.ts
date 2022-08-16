@@ -71,17 +71,11 @@ export const getLockedTokensMap = async (provider: AnchorProvider) => {
     tokenAccounts,
   } = await getPsyAmericanTokenAccounts(provider);
   const mintPubkeys = Object.keys(mintKeys).map((x) => new web3.PublicKey(x));
-  console.log(
-    `Fetching ${tokenAccounts.length} token accounts & ${mintPubkeys.length} mint infos`
-  );
 
   const [tokenInfos, mintInfos] = await Promise.all([
     getMultipleTokenInfo(provider, tokenAccounts),
     getMultipleMintInfos(provider, mintPubkeys),
   ]);
-  console.log(
-    `Recieved ${tokenInfos.length} token accounts & ${mintInfos.length} mint infos`
-  );
 
   const mintMap = mintInfos.reduce((acc: Record<string, MintInfo>, curr) => {
     acc[curr.publicKey.toString()] = curr.account;
