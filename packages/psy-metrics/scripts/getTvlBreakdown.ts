@@ -11,5 +11,6 @@ import { getLockedTokensMap } from "../src";
     AnchorProvider.defaultOptions()
   );
 
-  await getLockedTokensMap(provider);
+  const mintAmountMap = await getLockedTokensMap(provider);
+  console.log("Final: ", JSON.stringify(mintAmountMap));
 })();

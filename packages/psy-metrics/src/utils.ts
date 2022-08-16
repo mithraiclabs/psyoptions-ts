@@ -1,18 +1,25 @@
 import {
   AnchorProvider,
+  BN,
   ProgramAccount,
   Spl,
   web3,
 } from "@project-serum/anchor";
+import { MintInfo, TokenAccount } from "./types";
 
-export const getMultipleTokenInfo = async (
-  provider: AnchorProvider,
-  pubKeys: web3.PublicKey[]
-) => {
-  const splToken = Spl.token(provider);
-  let array: ProgramAccount<{}>[] = [];
-  var pubList = pubKeys.reduce((resultArray, item, index) => {
-    const chunkIndex = Math.floor(index / 100);
+export const wait = (delayMS: number) =>
+  new Promise((resolve) => setTimeout(resolve, delayMS));
+
+export const divideBnToNumber = (numerator: BN, denominator: BN): number => {
+    const quotient = numerator.div(denominator).toNumber();
+    const rem = numerator.umod(denominator);
+    const gcd = rem.gcd(denominator);
+    return quotient + rem.div(gcd).toNumber() / denominator.div(gcd).toNumber();
+  }
+
+export const chunkArray = <T>(array: T[], groupSize: number = 100): T[][] =>
+  array.reduce((resultArray, item, index) => {
+    const chunkIndex = Math.floor(index / groupSize);
 
     if (!resultArray[chunkIndex]) {
       resultArray[chunkIndex] = []; // start a new chunk
@@ -23,68 +30,71 @@ export const getMultipleTokenInfo = async (
     return resultArray;
   }, []);
 
-  for await (const subPubList of pubList) {
-    const info = await splToken.account.token.fetchMultiple(subPubList);
+// TODO: Create more elegant connection RPS throttle
+
+export const getMultipleTokenInfo = async (
+  provider: AnchorProvider,
+  pubKeys: web3.PublicKey[]
+): Promise<ProgramAccount<TokenAccount>[]> => {
+  const splToken = Spl.token(provider);
+  var pubList = chunkArray(pubKeys);
+  const res: ProgramAccount<TokenAccount>[] = [];
+
+  await pubList.reduce(async (acc, curr, i) => {
+    await acc;
+    await wait(750);
+    const info = (await splToken.account.token.fetchMultiple(
+      curr
+    )) as unknown as TokenAccount[];
     if (info === null) {
       throw new Error("Failed to find mint account");
     }
-    console.log("** token data", info[0]);
-
     info.forEach((tokenData, index) => {
       if (tokenData != null) {
         const details = {
-          pubkey: subPubList[index],
+          publicKey: curr[index],
           account: {
             ...tokenData,
           },
         };
-        // @ts-ignore
-        array.push(details);
+        res.push(details);
       }
     });
-  }
-
-  return array;
+    return null;
+  }, Promise.resolve(null));
+  return res;
 };
 
 export const getMultipleMintInfos = async (
   provider: AnchorProvider,
   pubKeys: web3.PublicKey[]
-) => {
+): Promise<ProgramAccount<MintInfo>[]> => {
   const splToken = Spl.token(provider);
-  let array: ProgramAccount<{}>[] = [];
-  var pubList = pubKeys.reduce((resultArray, item, index) => {
-    const chunkIndex = Math.floor(index / 100);
+  const res: ProgramAccount<MintInfo>[] = [];
+  var pubList = chunkArray(pubKeys);
 
-    if (!resultArray[chunkIndex]) {
-      resultArray[chunkIndex] = []; // start a new chunk
-    }
-
-    resultArray[chunkIndex].push(item);
-
-    return resultArray;
-  }, []);
-
-  for await (const subPubList of pubList) {
-    const info = await splToken.account.mint.fetchMultiple(subPubList);
+  await pubList.reduce(async (acc, curr, i) => {
+    await acc;
+    await wait(750);
+    const info = (await splToken.account.mint.fetchMultiple(
+      curr
+    )) as unknown as MintInfo[];
     if (info === null) {
       throw new Error("Failed to find mint account");
     }
-    console.log("** mint data", info[0]);
-
     info.forEach((mintData, index) => {
       if (mintData != null) {
         const details = {
-          pubkey: subPubList[index],
+          publicKey: curr[index],
           account: {
             ...mintData,
           },
         };
-        // @ts-ignore
-        array.push(details);
+        res.push(details);
       }
     });
-  }
+    return null;
+  }, Promise.resolve(null));
 
-  return array;
+  return res;
 };
