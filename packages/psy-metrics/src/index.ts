@@ -1,1 +1,2 @@
-export * from "./psyAmerican";
+export * as american from "./psyAmerican";
+export * as tokenizedEuros from "./psyTokenizedEuros";
