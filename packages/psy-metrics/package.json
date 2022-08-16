@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "getTvlBreakdown": "ts-node scripts/getTvlBreakdown",
+    "getTvlBreakdown": "ts-node --project ./script-tsconfig.json scripts/getTvlBreakdown",
     "build": "tsc",
     "build:package": "yarn clean && rollup -c",
     "clean": "rimraf ./dist",

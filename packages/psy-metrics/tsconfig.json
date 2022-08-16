@@ -3,7 +3,7 @@
       "declaration": true,
       "declarationDir": "dist",
       "declarationMap": true,
-      "module": "commonjs",
+      "module": "es6",
       "noImplicitAny": true,
       "esModuleInterop": true,
       "target": "es6",
