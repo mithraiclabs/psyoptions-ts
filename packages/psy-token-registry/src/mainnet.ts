@@ -226,7 +226,8 @@ export const mainnet: ClusterEnv = {
     symbol: "CRP",
     name: "Cropper Finance",
     decimals: 2,
-    logoURI: "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/DubwWZNWiNGMMeeQHPnMATNj77YZPZSAz2WVR5WjLJqz/logo.png",
+    logoURI:
+      "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/DubwWZNWiNGMMeeQHPnMATNj77YZPZSAz2WVR5WjLJqz/logo.png",
     tags: [],
     extensions: {
       coingeckoId: "cropperfinance",
@@ -241,7 +242,8 @@ export const mainnet: ClusterEnv = {
     symbol: "ARB",
     name: "ARB Protocol",
     decimals: 6,
-    logoURI: "https://raw.githubusercontent.com/ARBProtocol/arbprotocol/main/IMG_3600.png",
+    logoURI:
+      "https://raw.githubusercontent.com/ARBProtocol/arbprotocol/main/IMG_3600.png",
     tags: [],
     extensions: {
       coingeckoId: "arb-protocol",
@@ -250,21 +252,37 @@ export const mainnet: ClusterEnv = {
       serumV3Usdc: "Hc4YSWQMii3smLVRacH1JbPVH65ifBtoj4rGjVWKXmAs",
     },
   },
-  "DUSTawucrTsGU8hcqRdHDCbuYhCPADMLM2VcCb8VnFnQ" :{
+  DUSTawucrTsGU8hcqRdHDCbuYhCPADMLM2VcCb8VnFnQ: {
     chainId: 101,
     address: "DUSTawucrTsGU8hcqRdHDCbuYhCPADMLM2VcCb8VnFnQ",
     symbol: "DUST",
     name: "DUST Protocol",
     decimals: 9,
-    logoURI: "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/DUSTawucrTsGU8hcqRdHDCbuYhCPADMLM2VcCb8VnFnQ/logo.jpg",
-    tags: [
-      "NFT",
-      "utility-token"
-    ],
+    logoURI:
+      "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/DUSTawucrTsGU8hcqRdHDCbuYhCPADMLM2VcCb8VnFnQ/logo.jpg",
+    tags: ["NFT", "utility-token"],
     extensions: {
       discord: "https://discord.com/invite/dedao",
       twitter: "https://twitter.com/degodsnft",
-      website: "https://docs.dustprotocol.com/"
-    }
-  }
+      website: "https://docs.dustprotocol.com/",
+    },
+  },
+  cxxShYRVcepDudXhe7U62QHvw8uBJoKFifmzggGKVC2: {
+    chainId: 101,
+    address: "cxxShYRVcepDudXhe7U62QHvw8uBJoKFifmzggGKVC2",
+    symbol: "CHICKS",
+    name: "SolChicks",
+    decimals: 9,
+    logoURI:
+      "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/cxxShYRVcepDudXhe7U62QHvw8uBJoKFifmzggGKVC2/logo.png",
+    tags: ["gaming", "nfts", "utility-token", "community-token"],
+    extensions: {
+      coingeckoId: "solchicks-token",
+      description: "The Leading Play-to-Earn Fantasy Game on Solana",
+      discord: "https://discord.gg/solchicks",
+      telegram: "https://t.me/solchicksnft",
+      twitter: "https://twitter.com/SolChicksNFT",
+      website: "https://www.solchicks.io/",
+    },
+  },
 };
