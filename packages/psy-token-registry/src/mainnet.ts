@@ -34,6 +34,19 @@ export const mainnet: ClusterEnv = {
       coingeckoId: "bitcoin",
     },
   },
+  "7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs": {
+    chainId: 101,
+    address: "7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs",
+    symbol: "ETH",
+    name: "Wrapped Ether (Wormhole)",
+    decimals: 6,
+    logoURI:
+      "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk/logo.png",
+    tags: [ "ethereum"],
+    extensions: {
+      coingeckoId: "ethereum-wormhole",
+    },
+  },
   "2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk": {
     chainId: 101,
     address: "2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk",
