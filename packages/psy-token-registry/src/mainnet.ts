@@ -47,6 +47,19 @@ export const mainnet: ClusterEnv = {
       coingeckoId: "ethereum-wormhole",
     },
   },
+  "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263": {
+    chainId: 101,
+    address: "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+    symbol: "BONK",
+    name: "Bonk",
+    decimals: 5,
+    logoURI:
+      "https://assets.coingecko.com/coins/images/28600/small/bonk.jpg",
+    tags: [],
+    extensions: {
+      coingeckoId: "bonk",
+    },
+  },
   "2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk": {
     chainId: 101,
     address: "2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk",
