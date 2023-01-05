@@ -1,4 +1,4 @@
-import { AnchorProvider, BN, Program, web3 } from "@project-serum/anchor";
+import { AnchorProvider, BN, Program, web3, Spl } from "@project-serum/anchor";
 import NodeWallet from "@project-serum/anchor/dist/cjs/nodewallet";
 import { Deposit, DepositWithWallet, Registrar, Voter } from "../types";
 import { IDL, VoterStakeRegistry } from "./vsrIdl";
@@ -19,8 +19,8 @@ const PSY_REALM_ID = new web3.PublicKey(
   "FiG6YoqWnVzUmxFNukcRVXZC51HvLr6mts8nxcm7ScR8"
 );
 
-const PSY_DAO_GRANT_ACCOUNT = new web3.PublicKey(
-  "CcNUW7KDCdaUY6rNqYJBmTKYn66RjYTVyPUqCNEiALdp"
+const PSY_DAO_PSY_GRANT_ACCOUNT = new web3.PublicKey(
+  "2v6gYajLxSd2xdfRMz8LCUJrc79Z26PTGmVzqLA5g6KW"
 );
 
 /**
@@ -33,19 +33,27 @@ const PSY_DAO_GRANT_ACCOUNT = new web3.PublicKey(
  * @param connection
  */
 export const circulatingSupply = async (connection: web3.Connection) => {
-  // 1. Gather the mint info for the PSY token
-  // 2. Pull the PSY from the Governance Grant treasury SPL Token account
-  // 3. Pull the PSY from the Voter Stake Registry locked accounts. (See how Mango's lock chart loads and maybe kill 2 birds with one stone)
-  const vsrLockedPsy = await getVsrLockedDeposits(connection);
-};
-
-export const getVsrLockedDeposits = async (connection: web3.Connection) => {
   const provider = new AnchorProvider(
     connection,
     new NodeWallet(new web3.Keypair()),
     {}
   );
+  const splTokenProgram = Spl.token(provider);
+  // 1. Gather the mint info for the PSY token
+  const [mintInfo, psyGrantAccount] = await Promise.all([
+    splTokenProgram.account.mint.fetch(PSY_MINT_ADDRESS),
+    splTokenProgram.account.token.fetch(PSY_DAO_PSY_GRANT_ACCOUNT),
+  ]);
+  const totalSupply = mintInfo.supply;
+  // 2. Pull the PSY from the Governance Grant treasury SPL Token account
+  const grantSupply = psyGrantAccount.amount;
+  // 3. Pull the PSY from the Voter Stake Registry locked accounts. (See how Mango's lock chart loads and maybe kill 2 birds with one stone)
+  const vsrLockedPsy = await getVsrLockedDeposits(provider);
 
+  return totalSupply.sub(grantSupply).sub(vsrLockedPsy).div(new BN(10).pow(new BN(mintInfo.decimals)));
+};
+
+export const getVsrLockedDeposits = async (provider: AnchorProvider) => {
   // create VSR client
   const vsrProgram = new Program<VoterStakeRegistry>(
     IDL,

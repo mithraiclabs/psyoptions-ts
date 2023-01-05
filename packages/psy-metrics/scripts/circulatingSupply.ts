@@ -4,6 +4,6 @@ import { circulatingSupply } from "../src/circulatingSupply/index";
 const connection = new web3.Connection("https://api.mainnet-beta.solana.com");
 
 (async () => {
-
-    await circulatingSupply(connection);
+    const supply = await circulatingSupply(connection);
+    console.log(`circulating PSY: ${supply}`)
 })();
