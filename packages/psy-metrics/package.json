@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "getTvlBreakdown": "ts-node --project ./script-tsconfig.json scripts/getTvlBreakdown",
+    "circulatingSupply": "ts-node --project ./script-tsconfig.json scripts/circulatingSupply",
     "build": "tsc",
     "build:package": "yarn clean && rollup -c",
     "clean": "rimraf ./dist",
