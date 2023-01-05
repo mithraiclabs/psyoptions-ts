@@ -1,6 +1,6 @@
 import { AnchorProvider, BN, Program, web3, Spl } from "@project-serum/anchor";
-import NodeWallet from "@project-serum/anchor/dist/cjs/nodewallet";
-import { Deposit, DepositWithWallet, Registrar, Voter } from "../types";
+import { divideBnToNumber } from "../utils";
+import { DepositWithWallet, Registrar, Voter } from "../types";
 import { IDL, VoterStakeRegistry } from "./vsrIdl";
 
 const PSY_MINT_ADDRESS = new web3.PublicKey(
@@ -32,12 +32,7 @@ const PSY_DAO_PSY_GRANT_ACCOUNT = new web3.PublicKey(
  *
  * @param connection
  */
-export const circulatingSupply = async (connection: web3.Connection) => {
-  const provider = new AnchorProvider(
-    connection,
-    new NodeWallet(new web3.Keypair()),
-    {}
-  );
+export const circulatingSupply = async (provider: AnchorProvider) => {
   const splTokenProgram = Spl.token(provider);
   // 1. Gather the mint info for the PSY token
   const [mintInfo, psyGrantAccount] = await Promise.all([
@@ -50,7 +45,9 @@ export const circulatingSupply = async (connection: web3.Connection) => {
   // 3. Pull the PSY from the Voter Stake Registry locked accounts. (See how Mango's lock chart loads and maybe kill 2 birds with one stone)
   const vsrLockedPsy = await getVsrLockedDeposits(provider);
 
-  return totalSupply.sub(grantSupply).sub(vsrLockedPsy).div(new BN(10).pow(new BN(mintInfo.decimals)));
+  const numerator = totalSupply.sub(grantSupply).sub(vsrLockedPsy);
+  const denominator = new BN(10).pow(new BN(mintInfo.decimals));
+  return divideBnToNumber(numerator, denominator);
 };
 
 export const getVsrLockedDeposits = async (provider: AnchorProvider) => {

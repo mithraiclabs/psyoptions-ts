@@ -1,6 +1,6 @@
 {
   "name": "@mithraic-labs/psy-metrics",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Utility functions for calculating TVL or other metrics from the PSY ecosystem",
   "main": "dist/index.js",
   "module": "dist/index.es.js",

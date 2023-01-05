@@ -1,6 +1,7 @@
 import { AnchorProvider } from "@project-serum/anchor";
 import * as american from "./psyAmerican";
 import * as tokenizedEuros from "./psyTokenizedEuros";
+export * from "./circulatingSupply";
 
 export const getAllTvlTokenMap = async (provider: AnchorProvider) => {
     const mintAmountMap = await american.getLockedTokensMap(provider);
