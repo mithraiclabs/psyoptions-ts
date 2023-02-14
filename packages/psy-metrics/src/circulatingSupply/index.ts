@@ -29,6 +29,7 @@ const PSY_DAO_PSY_GRANT_ACCOUNT = new web3.PublicKey(
  * 1. Gathers the total token supply
  * 2. Subtract tokens locked in PSY DAO Voter Stake Registry accounts
  * 3. Subtract tokens held by listed addresses
+ * 4. Subtract off-chain vesting
  *
  * @param connection
  */
@@ -44,11 +45,33 @@ export const circulatingSupply = async (provider: AnchorProvider) => {
   const grantSupply = psyGrantAccount.amount;
   // 3. Pull the PSY from the Voter Stake Registry locked accounts. (See how Mango's lock chart loads and maybe kill 2 birds with one stone)
   const vsrLockedPsy = await getVsrLockedDeposits(provider);
+  // 4. Subtract off-chain vesting
+  const offChainVesting = offChainMonthylVesting();
 
-  const numerator = totalSupply.sub(grantSupply).sub(vsrLockedPsy);
+
+  const numerator = totalSupply.sub(grantSupply).sub(vsrLockedPsy).sub(offChainVesting);
   const denominator = new BN(10).pow(new BN(mintInfo.decimals));
   return divideBnToNumber(numerator, denominator);
 };
+
+const offChainMonthylVesting = () => {
+  const totalMonthlyVest = new BN(172_500_000_000_000);
+  const currentDate = new Date();
+  const startDate = new Date("2023-01-21");
+  const endDate = new Date("2026-01-21");
+  const yearDelta = endDate.getFullYear() - startDate.getFullYear();
+  const monthDelta = endDate.getMonth() - startDate.getMonth();
+  const totalMonthsVesting = monthDelta + (yearDelta * 12);
+
+  const currYearDelta = currentDate.getFullYear() - startDate.getFullYear();
+  const currMonthDelta = currentDate.getMonth() - startDate.getMonth();
+  let monthsVested = currMonthDelta + (currYearDelta * 12);
+
+  if (currentDate.getDate() < startDate.getDate()) {
+    monthsVested -= 1;
+  }
+  return totalMonthlyVest.sub(totalMonthlyVest.muln(monthsVested).divn(totalMonthsVesting));
+}
 
 export const getVsrLockedDeposits = async (provider: AnchorProvider) => {
   // create VSR client
