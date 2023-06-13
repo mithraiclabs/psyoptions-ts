@@ -1,7 +1,7 @@
 import { ClusterEnv } from "./types";
 
 export const devnet: ClusterEnv = {
-  "C6kYXcaRUMqeBF5fhg165RWU7AnpT9z92fvKNoMqjmz6": {
+  C6kYXcaRUMqeBF5fhg165RWU7AnpT9z92fvKNoMqjmz6: {
     chainId: 101,
     address: "C6kYXcaRUMqeBF5fhg165RWU7AnpT9z92fvKNoMqjmz6",
     symbol: "BTC",
@@ -18,14 +18,13 @@ export const devnet: ClusterEnv = {
       coingeckoId: "bitcoin",
     },
   },
-  "BzwRWwr1kCLJVUUM14fQthP6FJKrGpXjw3ZHTZ6PQsYa": {
+  BzwRWwr1kCLJVUUM14fQthP6FJKrGpXjw3ZHTZ6PQsYa: {
     chainId: 101,
     address: "BzwRWwr1kCLJVUUM14fQthP6FJKrGpXjw3ZHTZ6PQsYa",
     symbol: "Psy",
     name: "PsyOptions",
     decimals: 9,
-    logoURI:
-      "https://docs.psyoptions.io/img/PsyOps.svg",
+    logoURI: "https://docs.psyoptions.io/img/PsyOps.svg",
     tags: ["wrapped-sollet", "ethereum"],
     extensions: {
       bridgeContract:
@@ -66,8 +65,19 @@ export const devnet: ClusterEnv = {
       serumV3Usdt: "77quYg4MGneUdjgXCunt9GgM1usmrxKY31twEy3WHwcS",
     },
   },
+  "7VPWjBhCXrpYYBiRKZh1ubh9tLZZNkZGp2ReRphEV4Mc": {
+    chainId: 101,
+    address: "7VPWjBhCXrpYYBiRKZh1ubh9tLZZNkZGp2ReRphEV4Mc",
+    symbol: "ETH",
+    name: "Wrapped Ether (Wormhole)",
+    decimals: 6,
+    logoURI:
+      "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk/logo.png",
+    tags: ["ethereum"],
+    extensions: {
+      coingeckoId: "ethereum-wormhole",
+    },
+  },
 };
 
-export const faucets = {
-  
-}
+export const faucets = {};
