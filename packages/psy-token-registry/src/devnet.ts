@@ -24,7 +24,7 @@ export const devnet: ClusterEnv = {
     symbol: "Psy",
     name: "PsyOptions",
     decimals: 9,
-    logoURI: "https://docs.psyoptions.io/img/PsyOps.svg",
+    logoURI: "https://uploads-ssl.webflow.com/6158e3591ba06d14de4fd0df/61f900784e63439a5a052fed_PsyOptions.svg",
     tags: ["wrapped-sollet", "ethereum"],
     extensions: {
       bridgeContract:
