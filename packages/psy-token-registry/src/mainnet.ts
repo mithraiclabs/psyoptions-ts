@@ -42,19 +42,18 @@ export const mainnet: ClusterEnv = {
     decimals: 6,
     logoURI:
       "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/2FPyTwcZLUg1MDrwsyoP4D6s1tM7hAkHYRjkNb5w6Pxk/logo.png",
-    tags: [ "ethereum"],
+    tags: ["ethereum"],
     extensions: {
       coingeckoId: "ethereum-wormhole",
     },
   },
-  "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263": {
+  DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263: {
     chainId: 101,
     address: "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
     symbol: "BONK",
     name: "Bonk",
     decimals: 5,
-    logoURI:
-      "https://assets.coingecko.com/coins/images/28600/small/bonk.jpg",
+    logoURI: "https://assets.coingecko.com/coins/images/28600/small/bonk.jpg",
     tags: [],
     extensions: {
       coingeckoId: "bonk",
@@ -309,6 +308,26 @@ export const mainnet: ClusterEnv = {
       telegram: "https://t.me/solchicksnft",
       twitter: "https://twitter.com/SolChicksNFT",
       website: "https://www.solchicks.io/",
+    },
+  },
+  HxhWkVpk5NS4Ltg5nij2G671CKXFRKPK8vy271Ub4uEK: {
+    chainId: 101,
+    address: "HxhWkVpk5NS4Ltg5nij2G671CKXFRKPK8vy271Ub4uEK",
+    symbol: "HXRO",
+    name: "Hxro (Portal)",
+    decimals: 8,
+    logoURI:
+      "https://raw.githubusercontent.com/mithraiclabs/psyoptions-ts/tree/master/packages/psy-token-registry/logos/hxro.svg",
+    tags: ["wrapped", "wormhole"],
+    extensions: {
+      address: "0x4bd70556ae3f8a6ec6c4080a0c327b24325438f3",
+      assetContract:
+        "https://etherscan.io/address/0x4bd70556ae3f8a6ec6c4080a0c327b24325438f3",
+      bridgeContract:
+        "https://etherscan.io/address/0x3ee18B2214AFF97000D974cf647E7C347E8fa585",
+      coingeckoId: "hxro",
+      serumV3Usdc: "CBb5zXwNRB73WVjs2m21P5prcEZa6SWmej74Vzxh8dRm",
+      serumV3Usdt: "3BScwNxtMrEcQ5VTHyXHYQR98dTaxfyXGaLkuSjBY1dW",
     },
   },
 };
