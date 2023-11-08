@@ -330,4 +330,17 @@ export const mainnet: ClusterEnv = {
       serumV3Usdt: "3BScwNxtMrEcQ5VTHyXHYQR98dTaxfyXGaLkuSjBY1dW",
     },
   },
+  "6DNSN2BJsaPFdFFc1zP37kkeNe4Usc1Sqkzr9C9vPWcU": {
+    chainId: 101,
+    address: "6DNSN2BJsaPFdFFc1zP37kkeNe4Usc1Sqkzr9C9vPWcU",
+    symbol: "tBTC",
+    name: "Threshold BTC",
+    decimals: 8,
+    logoURI:
+      "https://raw.githubusercontent.com/mithraiclabs/psyoptions-ts/master/packages/psy-token-registry/logos/TBTC_Symbol.png",
+    tags: ["wrapped", "threshold"],
+    extensions: {
+      coingeckoId: "btc",
+    },
+  },
 };
