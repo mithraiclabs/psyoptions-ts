@@ -317,7 +317,7 @@ export const mainnet: ClusterEnv = {
     name: "Hxro (Portal)",
     decimals: 8,
     logoURI:
-      "https://raw.githubusercontent.com/mithraiclabs/psyoptions-ts/tree/master/packages/psy-token-registry/logos/hxro.svg",
+      "https://raw.githubusercontent.com/mithraiclabs/psyoptions-ts/master/packages/psy-token-registry/logos/hxro.svg",
     tags: ["wrapped", "wormhole"],
     extensions: {
       address: "0x4bd70556ae3f8a6ec6c4080a0c327b24325438f3",
