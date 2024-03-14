@@ -343,4 +343,17 @@ export const mainnet: ClusterEnv = {
       coingeckoId: "btc",
     },
   },
+  "bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1": {
+    chainId: 101,
+    address: "bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1",
+    symbol: "bSOL",
+    name: "BlazeStake Staked SOL",
+    decimals: 9,
+    logoURI:
+      "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1/logo.png",
+    tags: [],
+    extensions: {
+      coingeckoId: "blazestake-staked-sol",
+    },
+  },
 };
